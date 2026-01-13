@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminHomeController;
 
 
 Route::get('/', function () {
@@ -11,7 +11,7 @@ Route::get('/', function () {
 Route::prefix('pam')->group(function () {
         // Admin Routes
     Route::prefix('admin')->group(function () {
-            Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+            Route::get('/home', [AdminHomeController::class, 'index'])->name('admin.home');
 
 
     });
