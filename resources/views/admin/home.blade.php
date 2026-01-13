@@ -7,10 +7,10 @@
 
 <div class="flex h-screen bg-neutral-light">
 
-    <div class="flex-1 overflow-auto">
+    <div class="flex-1 pt-30 overflow-auto">
 
         <div class="p-4 px-18 max-md:px-8 ">
-            @include('components.navbar')
+            @include('components.admin-navbar')
 
             <div class="mb-6 flex justify-end">
                 <button onclick=""
