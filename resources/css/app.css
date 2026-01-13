@@ -8,4 +8,39 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-primary: #175668;
+    --color-primary-dark: #0f3d4a;
+    --color-text-primary: #071828; 
+    --color-neutral-light: #F9FAFB; 
+    --color-neutral-gray: #9CA3AF;
+    --color-button: #027B8E;
+    --color-shadow: #11374A;
+    --color-tags: #00B4D0;
+}
+
+@layer base {
+    body {
+        /* Matches --color-text-primary and --color-neutral-light above */
+        @apply font-sans text-text-primary bg-neutral-light antialiased;
+    }
+
+    h3 {
+        @apply text-xs font-bold text-neutral-gray capitalize tracking-wider;
+    }
+}
+
+@layer components {
+
+    .normal-btn {
+        @apply bg-button text-white px-6 py-1.5 rounded-lg font-normal cursor-pointer hover:shadow-md transition hover:bg-white hover:text-primary hover:ring-1;
+    }
+
+    .cancel-btn {
+        @apply block w-full appearance-none rounded-md text-[#364153] py-2 sm:text-sm hover:bg-[#F3F4F6] transition-all;
+    }
+
+    .icons {
+        @apply w-4 h-4 md:w-5 md:h-5;
+    }
 }
