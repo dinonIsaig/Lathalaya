@@ -1,0 +1,92 @@
+@extends('layouts.app')
+
+@section('title', 'Create Article')
+
+@section('content')
+    
+
+<div class="flex h-screen bg-neutral-light">
+
+    <div class="flex-1 pt-30 overflow-auto">
+
+        <div class="p-4 px-18 max-md:px-8 ">
+            @include('components.author-navbar')
+
+            <div class="max-w-full mx-auto my-2 bg-white border border-gray-100 rounded-[10px] shadow-sm overflow-hidden">
+                <div class="flex flex-col items-start shrink-0 self-stretch pt-4 pb-4 px-6 bg-white border-b border-solid border-[#E5E7EB] mb-6">
+                    <h1 class="text-2xl font-bold text-text-primary leading-tight">Create New Article</h1>
+                </div>
+
+            <form action="{{ route('author.store-article') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="px-6 pt-1 pb-4 space-y-6">
+                    <label class="block mb-2 text-sm font-medium text-gray-700">Article Title *</label>
+                    <input type="text" name="title" placeholder="Enter a compelling headline..." 
+                            class="w-full px-4 py-3 border border-gray-200 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-button focus:border-transparent">
+                </div>
+
+                <div class="px-6 pt-1 pb-4 space-y-6">
+                    <label class="block mb-2 text-sm font-medium text-gray-700">Cover Image</label>
+                    <div class="overflow-hidden rounded-lg border border-gray-200 mb-3">
+                        @if(isset($article) && $article->cover_image)
+                            <img id="cover_preview" src="{{ asset('storage/' . $article->cover_image) }}" 
+                                    alt="{{ $article->title }}" 
+                                    class="w-full h-48 object-cover">
+                        @else
+                            <img id="cover_preview" src="{{ asset('assets/images/sampleCover.png') }}" 
+                                    alt="Default Cover" 
+                                    class="w-full h-48 object-cover">
+                        @endif
+                    </div>
+
+                <label class="cursor-pointer flex items-center w-fit px-4 py-2 border border-gray-200 rounded-[10px] text-sm font-medium text-neutral-950 hover:bg-gray-50">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span>Add Cover Image</span>
+                    <input type="file" id="cover_input" name="cover_image" class="hidden" accept="image/*">
+                </label>
+                </div>
+
+                <div class="px-6 pt-1 pb-4 space-y-6">
+                    <label class="block mb-2 text-sm font-medium text-gray-700">Category *</label>
+                    <input type="text" name="category" class="w-full px-4 py-3 border border-gray-200 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-button">
+                </div>
+
+                <div  class="px-6 pt-1 pb-4 space-y-6">
+                    <label class="block mb-2 text-sm font-medium text-gray-700">Article Content *</label>
+                    <div class="border border-gray-200 rounded-[10px] overflow-hidden">
+                        <div class="flex items-center space-x-4 px-4 py-2 border-b border-gray-100 bg-gray-50 text-gray-500">
+                            <button type="button" class="font-serif font-bold">T</button>
+                            <button type="button" class="font-bold">B</button>
+                            <button type="button" class="italic">I</button>
+                            <button type="button">List</button>
+                            <button type="button">Link</button>
+                        </div>
+                        <textarea name="content" rows="10" placeholder="Write your article content here..." 
+                                  class="w-full px-4 py-4 focus:outline-none text-gray-600 italic"></textarea>
+                    </div>
+                </div>
+
+                <div class="px-8 py-4 bg-gray-50 border-t border-gray-100 flex justify-between items-center rounded-b-lg">
+                    <a href="{{ route('author.home') }}" class="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">
+                        Cancel
+                    </a>
+                    <button type="submit" class="bg-button text-white px-6 py-1 rounded-[10px] hover:bg-primary-dark transition-colors">
+                        Submit for Review
+                    </button>
+                </div>
+
+            </form>
+
+        
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@push('scripts')
+    @vite(['resources/js/article-cover.js'])
+@endpush
+
