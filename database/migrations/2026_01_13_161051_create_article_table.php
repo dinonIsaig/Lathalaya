@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id('article_id');
-            $table->foreignId('author_id')->unique()->constrained(table: 'authors', column: 'author_id')->onDelete('cascade');
+            $table->foreignId('author_id')->constrained(table: 'authors', column: 'author_id')->onDelete('cascade');
             $table->string('title', 255);
             $table->string('cover_image')->nullable();
             $table->enum('Category', ['Technology', 'Sports', 'Politics', 'Entertainment']); // Add more categories as needed
