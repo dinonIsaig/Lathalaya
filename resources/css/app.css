@@ -11,8 +11,8 @@
 
     --color-primary: #175668;
     --color-primary-dark: #0f3d4a;
-    --color-text-primary: #071828; 
-    --color-neutral-light: #F9FAFB; 
+    --color-text-primary: #071828;
+    --color-neutral-light: #F9FAFB;
     --color-neutral-gray: #9CA3AF;
     --color-button: #027B8E;
     --color-shadow: #11374A;
@@ -33,7 +33,11 @@
 @layer components {
 
     .normal-btn {
-        @apply bg-button text-white px-6 py-1.5 rounded-lg font-normal cursor-pointer hover:shadow-md transition hover:bg-white hover:text-primary hover:ring-1;
+        @apply bg-button text-white px-5 py-2 rounded-md font-normal cursor-pointer hover:shadow-md transition hover:bg-white hover:text-primary hover:ring-1;
+    }
+
+    .normal-btn-outline {
+        @apply border bg-white text-primary px-5 py-2 rounded-md font-normal cursor-pointer hover:shadow-md transition hover:bg-button hover:text-white hover:ring-1;
     }
 
     .cancel-btn {
@@ -48,7 +52,14 @@
         @apply text-primary hover:text-neutral-gray text-sm transition ;
     }
 
+    .input-field {
+        @apply block w-full rounded-xl border border-gray-300 py-3 pl-10 pr-3 text-gray-900 placeholder-gray-400 focus:border-[#00B4D0] focus:outline-none focus:ring-1 focus:ring-[#00B4D0] sm:text-sm;
+    }
 
-    
-    
+    .input-label{
+        @apply text-sm text-text-primary;
+    }
+
+
+
 }

@@ -9,7 +9,8 @@ Route::get('/', function () {
 })->name('lathalaya');
 
 Route::prefix('pam')->group(function () {
-        // Admin Routes
+
+    // Admin Routes
     Route::prefix('admin')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin.home');
 
@@ -21,11 +22,21 @@ Route::prefix('pam')->group(function () {
 
 
     });
+
 });
 
 
 // Author Routes
 Route::prefix('author')->group(function () {
+
+    Route::get('/sign-in', function () {
+        return view('author.sign-in');
+    })->name('author.login');
+
+    Route::get('/sign-up', function () {
+        return view('author.sign-up');
+    })->name('author.register');
+
 
 
 });
