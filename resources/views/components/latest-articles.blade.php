@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
     @foreach (range(1, 4) as $index)
         <div class="flex flex-wrap">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden top-4 max-w-md">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden top-4 max-w-2xl">
                 <img src="{{ asset('assets/images/articleImg.png') }}" alt="Article Image"
                     class="object-cover h-35 w-full">
 

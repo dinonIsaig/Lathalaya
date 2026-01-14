@@ -30,7 +30,7 @@
 
                         <div class="absolute bottom-0 left-0 flex flex-col p-5  md:p-10 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
                             <span class="bg-tags text-xs px-2 py-1  md:text-xs rounded-2xl w-fit">Business</span>
-                            <h1 class="text-lg sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 max-w-4xl leading-tight">Breaking: New Technology Revolution Transforms Global Markets</h1>
+                            <h1 class="text-white text-lg sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 max-w-4xl leading-tight">Breaking: New Technology Revolution Transforms Global Markets</h1>
                             <p class="text-xs md:text-sm opacity-80 mt-2">By John Writer</p>
                         </div>
                     </div>
