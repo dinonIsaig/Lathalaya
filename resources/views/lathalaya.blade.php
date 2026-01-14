@@ -10,7 +10,7 @@
     <div class="flex-1 pt-30 overflow-auto">
 
         <div class="p-4 px-18 max-md:px-8 ">
-            @include('components.user-navbar')
+            @include('components.default-navbar')
 
             <div class="mb-6 flex justify-end">
                 <button onclick=""
