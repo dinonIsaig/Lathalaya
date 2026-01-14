@@ -25,9 +25,9 @@
 
             <div class="justify-center w-full mb-10">
                 <div class="top-4 right-4 flex items-center mb-2">
-                    <div class="bg-black rounded-xl relative overflow-hidden w-full aspect-[21/9] md:aspect-[3/1]"> 
+                    <div class="bg-black rounded-xl relative overflow-hidden w-full aspect-[21/9] md:aspect-[3/1]">
                         <img src="{{ asset('assets/images/headlineImg.png') }}" alt="Headline Image" class="object-cover rounded-lg w-full h-full">
-                        
+
                         <div class="absolute bottom-0 left-0 flex flex-col p-5  md:p-10 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
                             <span class="bg-tags text-xs px-2 py-1  md:text-xs rounded-2xl w-fit">Business</span>
                             <h1 class="text-lg sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 max-w-4xl leading-tight">Breaking: New Technology Revolution Transforms Global Markets</h1>
@@ -55,9 +55,9 @@
                         <div class="flex flex-wrap">
                             <div class="bg-white rounded-lg shadow-md overflow-hidden top-4 max-w-md">
                                 <img src="{{ asset('assets/images/articleImg.png') }}" alt="Article Image" class="object-cover h-35 w-full">
-                                
+
                                 <div class="pl-4 py-5 pr-30">
-                                    
+
                                     <div class="flex items-center gap-3 mb-3">
                                         <span class="bg-tags-bg text-primary text-xs font-semibold px-2 py-1 rounded">Health</span>
                                         <span class="text-gray-400 text-xs">January 10, 2026</span>
