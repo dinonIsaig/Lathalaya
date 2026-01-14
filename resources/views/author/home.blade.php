@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Lathalaya')
+@section('title', 'Home')
 
 @section('content')
-
+    
 
 <div class="flex h-screen bg-neutral-light">
 
     <div class="flex-1 pt-30 overflow-auto">
 
         <div class="p-4 px-18 max-md:px-8 ">
-            @include('components.user-navbar')
+            @include('components.author-navbar')
 
             <div class="mb-6 flex justify-end">
                 <button onclick=""
@@ -19,15 +19,16 @@
                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
                         <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
                     </svg>
-                    <span class="hidden sm:inline-block ml-1 tracking-tight text-base">Create Article</span>
+                    <a href="{{ route('author.create-article') }}">
+                    <span class="hidden sm:inline-block ml-1 tracking-tight text-base">Create Article</span></a>
                 </button>
             </div>
 
             <div class="justify-center w-full mb-10">
                 <div class="top-4 right-4 flex items-center mb-2">
-                    <div class="bg-black rounded-xl relative overflow-hidden w-full aspect-[21/9] md:aspect-[3/1]">
+                    <div class="bg-black rounded-xl relative overflow-hidden w-full aspect-[21/9] md:aspect-[3/1]"> 
                         <img src="{{ asset('assets/images/headlineImg.png') }}" alt="Headline Image" class="object-cover rounded-lg w-full h-full">
-
+                        
                         <div class="absolute bottom-0 left-0 flex flex-col p-5  md:p-10 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
                             <span class="bg-tags text-xs px-2 py-1  md:text-xs rounded-2xl w-fit">Business</span>
                             <h1 class="text-lg sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 max-w-4xl leading-tight">Breaking: New Technology Revolution Transforms Global Markets</h1>
@@ -50,7 +51,30 @@
             <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6">Latest Stories</h2>
 
             <div class="flex justify-center mb-4">
-                @include('components.latest-articles')
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+                    @foreach(range(1, 4) as $index)
+                        <div class="flex flex-wrap">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden top-4 max-w-md">
+                                <img src="{{ asset('assets/images/articleImg.png') }}" alt="Article Image" class="object-cover h-35 w-full">
+                                
+                                <div class="pl-4 py-5 pr-30">
+                                    
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="bg-tags-bg text-primary text-xs font-semibold px-2 py-1 rounded">Health</span>
+                                        <span class="text-gray-400 text-xs">January 10, 2026</span>
+                                    </div>
+
+                                    <h1 class="text-gray-900 text-lg font-bold leading-tight mb-4">
+                                        Revolutionary Medical Treatment Shows Promise in Clinical Trials</h1>
+
+                                    <p class="text-gray-500 text-sm">By John Writer</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
             </div>
 
         </div>
@@ -59,7 +83,5 @@
 </div>
 
 
-@stack('scripts')
 @endsection
-
 
