@@ -12,7 +12,7 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="{{ route('admin.home') }}" class="nav-text {{ Request::routeIs('admin.home') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Home</a>
                 <a href="#" class="nav-text {{ Request::routeIs('admin.create') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Create Article</a>
-                <a href="#" class="nav-text {{ Request::routeIs('admin.dashboard') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Dashboard</a>
+                <a href="{{ route('admin.dashboard') }}" class="nav-text {{ Request::routeIs('admin.dashboard') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Dashboard</a>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <button class=" text-neutral-gray hover:text-primary transition-colors p-1">
+            <button class=" text-neutral-gray hover:text-primary transition-colors p-1 pr-5 cursor-pointer">
                 <svg class="icons" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                 </svg>
