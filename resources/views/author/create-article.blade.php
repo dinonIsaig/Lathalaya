@@ -48,7 +48,26 @@
 
                 <div class="px-6 pt-1 pb-4 space-y-6">
                     <label class="block mb-2 text-sm font-medium text-gray-700">Category *</label>
-                    <input type="text" name="category" class="w-full px-4 py-3 border border-gray-200 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-button">
+                    <div class="relative">
+                        <select name="category" 
+                                class="w-full px-4 py-3 border border-gray-200 rounded-[10px] bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-button focus:border-transparent cursor-pointer">
+                            <option value="" disabled selected>Select a category...</option>
+                            <option value="Politics & Government">Politics & Government</option>
+                            <option value="Business & Finance">Business & Finance</option>
+                            <option value="Technology & Science">Technology & Science</option>
+                            <option value="Health & Fitness">Health & Fitness</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Lifestyle & Travel">Lifestyle & Travel</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Environment & Nature">Environment & Nature</option>
+                            <option value="Obituaries">Obituaries</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
                 <div  class="px-6 pt-1 pb-4 space-y-6">
