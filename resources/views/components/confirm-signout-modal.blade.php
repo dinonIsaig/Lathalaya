@@ -13,12 +13,12 @@
 
       <div class="flex gap-4">
         <button
-          class="w-1/2 bg-gray-100 text-gray-700 py-4 rounded-xl hover:bg-gray-200 transition-colors">
+          class="cancel-btn">
           Cancel
         </button>
 
         <button
-          class="w-1/2 bg-[#027B8E] text-white py-4 rounded-xl hover:bg-[#026270] transition-colors">
+          class="normal-btn w-full">
           Delete
         </button>
       </div>

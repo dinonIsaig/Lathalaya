@@ -12,7 +12,7 @@
       </p>
 
       <button
-        class="w-full bg-[#027B8E] text-white py-4 rounded-xl hover:bg-[#026270] transition-colors">
+        class="normal-btn w-full">
         Done
       </button>
 
