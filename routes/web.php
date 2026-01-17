@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Editor\EditorDashboardController;
+use App\Http\Controllers\Editor\EditorUpdateArticleController;
 use App\Http\Controllers\ArticleController;
 
 
@@ -22,8 +24,8 @@ Route::prefix('pam')->group(function () {
 
     // Editor Routes
     Route::prefix('editor')->group(function () {
-
-
+            Route::get('/dashboard', [EditorDashboardController::class, 'index'])->name('editor.dashboard');
+            Route::get('/update-article', [EditorUpdateArticleController::class, 'index'])->name('editor.update-article');
     });
 
 });
