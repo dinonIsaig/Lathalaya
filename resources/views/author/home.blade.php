@@ -38,14 +38,16 @@
                 </div>
             </div>
 
-
-            <div class="flex justify-end mb-4">
+            <div x-data="{ open : false }">
+                <div class="flex justify-end mb-4">
                         <button onclick="" class="normal-btn flex items-center px-3 md:px-4">
                             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3 6H21M6 12H18M10 18H14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <span class="hidden sm:inline-block ml-1 tracking-tight text-base">Filter</span>
                         </button>
+                    </div>
+                @include('components.filter')
             </div>
 
             <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6">Latest Stories</h2>
