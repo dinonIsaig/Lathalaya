@@ -27,23 +27,25 @@
 
     <div class="flex flex-col md:flex-row gap-6 p-8 bg-gray-50 min-h-screen justify-center items-start">
         
-        <div class="bg-white rounded-3xl shadow-lg p-8 w-full max-w-sm border border-gray-100 transition-transform hover:scale-105">
-            <div class="h-4 w-full rounded-full bg-gradient-to-r from-[#175668] to-[#2EAACE] mb-8"></div>
-            
-            <h2 class="text-3xl font-bold text-slate-900 mb-4">Editor</h2>
-            <p class="text-slate-500 text-lg leading-relaxed">
-                Review and publish content from authors
-            </p>
-        </div>
+        <a href="{{ route('editor.dashboard') }}" class="block group">
+            <div class="bg-white rounded-3xl shadow-lg p-8 w-full max-w-sm border border-gray-100 transition-transform hover:scale-105">
+                <div class="h-4 w-full rounded-full bg-gradient-to-r from-[#175668] to-[#2EAACE] mb-8"></div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Editor</h2>
+                <p class="text-slate-500 text-lg leading-relaxed">
+                    Review and publish content from authors
+                </p>
+            </div>
+        </a>
 
-        <div class="bg-white rounded-3xl shadow-lg p-8 w-full max-w-sm border border-gray-100 transition-transform hover:scale-105">
-            <div class="h-4 w-full rounded-full bg-gradient-to-r from-[#175668] to-[#2EAACE] mb-8"></div>
-            
-            <h2 class="text-3xl font-bold text-slate-900 mb-4">Administrator</h2>
-            <p class="text-slate-500 text-lg leading-relaxed">
-                Full control over content and users
-            </p>
-        </div>
+        <a href="{{ route('admin.home') }}" class="block group">
+            <div class="bg-white rounded-3xl shadow-lg p-8 w-full max-w-sm border border-gray-100 transition-transform hover:scale-105">
+                <div class="h-4 w-full rounded-full bg-gradient-to-r from-[#175668] to-[#2EAACE] mb-8"></div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Administrator</h2>
+                <p class="text-slate-500 text-lg leading-relaxed">
+                    Full control over content and users
+                </p>
+            </div>
+        </a>
 
     </div>
 @endsection
