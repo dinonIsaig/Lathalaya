@@ -59,8 +59,8 @@
                 <div class="space-y-2">
                     <label class="input-label font-semibold"> Status * </label>
                     <select id="article-status" name="status" class="input-field !pl-4">
-                        <option value="Pending" {{ $article->status == 'Pending' ? 'selected' : '' }}>Pending (Keep in Draft)</option>
-                        <option value="Published" {{ $article->status == 'Published' ? 'selected' : '' }}>Published (Live on Site)</option>
+                        <option value="Pending" {{ $article->status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                        <option value="Published" {{ $article->status == 'Published' ? 'selected' : '' }}>Published</option>
                     </select>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                     <button type="button" title="Heading">H</button>
                     <button type="button" title="Bold">B</button>
                     <button type="button" title="Italic">I</button>
-                    <button type="button" title="Link">List</button>
+                    <button type="button" title="List">List</button>
                     <button type="button" title="Link">🔗</button>
                 </div>
                 <textarea id="article-content" name="content"
