@@ -21,4 +21,10 @@ class Article extends Model
         'content',
         'status',
     ];
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'author_id', 'author_id');
+    }
+
 }
