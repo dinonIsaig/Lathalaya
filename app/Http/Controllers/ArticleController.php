@@ -41,8 +41,7 @@ class ArticleController extends Controller
             $imagePath = $request->file('cover_image')->store('articles', 'public');
         }
 
-        
-        Article::create([
+        $article = Article::create([
             'title' => $request->title,
             'category' => $request->category,
             'content' => $request->content,
@@ -50,7 +49,8 @@ class ArticleController extends Controller
             'author_id' => 1, //temporary hardcoded author ID, use author seeder for sample author
         ]);
 
-        return redirect()->route('author.create-article')->with('success', 'Article submitted for review!');
+        return redirect()->route('author.article-view', ['id' => $article->article_id])
+                     ->with('success', 'Article submitted!');
     }
 
     /**
@@ -58,7 +58,10 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
+        $article = Article::findOrFail($id);
+
+        return view('author.article-view', compact('article'));
     }
 
     /**

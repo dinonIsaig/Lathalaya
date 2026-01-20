@@ -12,7 +12,7 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="{{ route('author.home') }}" class="nav-text {{ Request::routeIs('author.home') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Home</a>
                 <a href="{{ route('author.create-article') }}" class="nav-text {{ Request::routeIs('author.create-article') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Create Article</a>
-                <a href="#" class="nav-text {{ Request::routeIs('admin.dashboard') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">My Submissions</a>
+                <a href="{{ route('author.dashboard') }}" class="nav-text {{ Request::routeIs('author.dashboard') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">My Submissions</a>
             </div>
         </div>
 

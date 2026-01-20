@@ -103,9 +103,23 @@
     </div>
 </div>
 
+<x-confirm-submitted-modal id="confirmSubmittedModal" />
+
 @endsection
 
 @push('scripts')
     @vite(['resources/js/article-cover.js'])
+
+    <script>
+        @if(session('success'))
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('confirmSubmittedModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+            }
+        });
+        @endif
+    </script>
+
 @endpush
 
