@@ -19,6 +19,8 @@ Route::prefix('pam')->group(function () {
     Route::prefix('admin')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin.home');
             Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+            Route::delete('/dashboard', [AdminDashboardController::class, 'destroy'])->name('admin.dashboard.destroy');
+
 
 
     });
