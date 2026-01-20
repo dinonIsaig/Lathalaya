@@ -20,13 +20,27 @@
           Cancel
         </button>
 
-        <button
-          class="normal-btn w-full">
-          Publish
-        </button>
+        <form id="publish-form" method="POST" class="w-full">
+            @csrf
+            @method('PATCH') 
+            <button type="submit" class="normal-btn w-full">
+                Publish
+            </button>
+        </form>
       </div>
 
     </div>
   </div>
 
 </div>
+
+<script>
+    function openPublishModal(articleId) {
+        const modal = document.getElementById('{{ $id }}');
+        const form = document.getElementById('publish-form');
+        
+        form.action = `/pam/admin/publish-article/${articleId}`;
+        
+        modal.classList.remove('hidden');
+    }
+</script>

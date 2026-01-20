@@ -62,7 +62,7 @@ class AdminDashboardController extends Controller
     $articles->delete();
 
     return redirect()->route('admin.dashboard')
-                        ->with('success', 'Transaction deleted successfully');
+                        ->with('success', 'Article deleted successfully');
     }
 
 

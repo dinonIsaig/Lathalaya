@@ -9,7 +9,7 @@
         <div class="p-4 px-18 max-md:px-8">
             @include('components.admin-navbar')
 
-            <form action="{{ route('admin.update-article', $article->article_id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.update-article.submit', $article->article_id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -54,8 +54,21 @@
                                 <label class="input-label font-semibold"> Category * </label>
                                 <select id="article-category" name="category" class="input-field !pl-4">
                                     <option value="">Select a category</option>
-                                    @foreach(['Technology', 'Sports', 'Politics', 'Entertainment'] as $category)
-                                        <option value="{{ $category }}" {{ $article->category == $category ? 'selected' : '' }}>
+                                    @php
+                                        $categories = [
+                                            'Politics & Government', 
+                                            'Business & Finance', 
+                                            'Technology & Science', 
+                                            'Health & Fitness', 
+                                            'Sports', 
+                                            'Lifestyle & Travel', 
+                                            'Entertainment', 
+                                            'Environment & Nature', 
+                                            'Obituaries'
+                                        ];
+                                    @endphp
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category }}" {{ old('category', $article->category) == $category ? 'selected' : '' }}>
                                             {{ $category }}
                                         </option>
                                     @endforeach

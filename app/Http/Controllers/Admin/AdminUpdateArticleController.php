@@ -15,4 +15,17 @@ class AdminUpdateArticleController extends Controller
 
         return view('admin.update-article', compact('article'));
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        $article = Article::where('article_id', $id)->firstOrFail();
+        $article->update($request->all());
+
+        return redirect()->route('admin.dashboard')->with('success', 'Article updated successfully!');
+    }
 }
