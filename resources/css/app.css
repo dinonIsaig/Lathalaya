@@ -18,6 +18,10 @@
     --color-shadow: #11374A;
     --color-tags: #00B4D0;
     --color-tags-bg: #EFF6FF;
+    --color-pending: #FFF0D3;
+    --color-pending-text: #D08700;
+    --color-published: #E3FFED;
+    --color-published-text: #00A63E;
 }
 
 @layer base {
@@ -59,6 +63,13 @@
         @apply w-9 h-9 flex items-center justify-center rounded-lg text-red-600 hover:text-neutral-gray transition cursor-pointer;
     }
 
+    .pending{
+        @apply bg-pending text-pending-text px-2 py-1 rounded-lg font-semibold text-xs;
+    }
+
+    .published{
+        @apply bg-published text-published-text px-2 py-1 rounded-lg font-semibold text-xs;
+    }
 
 
     .icons {
