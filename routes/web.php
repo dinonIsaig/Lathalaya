@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Editor\EditorDashboardController;
 use App\Http\Controllers\Editor\EditorUpdateArticleController;
+use App\Http\Controllers\Author\AuthorDashboardController;
 use App\Http\Controllers\ArticleController;
 
 
@@ -47,6 +48,10 @@ Route::prefix('pam')->group(function () {
         Route::get('/create', [ArticleController::class, 'index'])->name('author.create-article');
 
         Route::post('/store', [ArticleController::class, 'store'])->name('author.store-article');
+
+        Route::get('/author/article/{id}', [ArticleController::class, 'show'])->name('author.article-view');
+
+        Route::get('/dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard');
 
         Route::get('/home', function () {
             return view('author.home');
