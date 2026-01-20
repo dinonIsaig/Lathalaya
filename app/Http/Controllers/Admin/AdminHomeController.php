@@ -12,27 +12,11 @@ class AdminHomeController extends Controller
 {
     public function index(Request $request)
     {
-        
-
-        $publishedArticles = Article::with('author')
-        ->where('status', 'Published') 
-        ->latest('created_at')
-        ->get();
-
-        $query = Article::query()->where('status', '!=', 'Pending');
-
-
-        $articles = $query->with('author')
-        ->latest('created_at')
-        ->paginate(10)
-        ->withQueryString();
-
-
-
-        return view('admin.home', compact(
-                'articles', 
-                'publishedArticles', 
-            ));
+        $articles = Article::where('status', 'Published')->latest()->take(9)->get();
+            
+            return view('admin.home', [
+                'publishedArticles' => $articles 
+            ]);
     }
 
 
