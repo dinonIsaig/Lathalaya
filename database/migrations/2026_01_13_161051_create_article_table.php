@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('author_id')->constrained(table: 'authors', column: 'author_id')->onDelete('cascade');
             $table->string('title', 255);
             $table->string('cover_image')->nullable();
-            $table->enum('Category', ['Politics & Government', 'Business & Finance', 'Technology & Science', 
+            $table->enum('category', ['Politics & Government', 'Business & Finance', 'Technology & Science', 
                                         'Health & Fitness', 'Sports', 'Lifestyle & Travel', 
                                         'Entertainment', 'Environment & Nature', 'Obituaries']); // Add more categories as needed
             $table->text('content');
