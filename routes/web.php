@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminUpdateArticleController;
 use App\Http\Controllers\Editor\EditorDashboardController;
 use App\Http\Controllers\Editor\EditorUpdateArticleController;
 use App\Http\Controllers\Author\AuthorDashboardController;
@@ -20,6 +21,7 @@ Route::prefix('pam')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin.home');
             Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
             Route::delete('/dashboard', [AdminDashboardController::class, 'destroy'])->name('admin.dashboard.destroy');
+            Route::get('/update-article/{id}', [AdminUpdateArticleController::class, 'index'])->name('admin.update-article');
 
 
 
