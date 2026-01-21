@@ -18,6 +18,10 @@ Route::get('/', function () {
 
 Route::prefix('pam')->group(function () {
 
+    Route::get('account-type', function () {
+        return view('account-type');
+    })->name('pam.account.type');
+
     // Admin Routes
     Route::prefix('admin')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin.home');
