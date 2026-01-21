@@ -54,7 +54,7 @@
             <div class="flex justify-center mb-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
                     @foreach($publishedArticles as $article)
-                        <x-admin-articles-home :article="$article" />
+                        <x-latest-articles-home :article="$article" />
                     @endforeach
                 </div>
 

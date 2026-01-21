@@ -52,7 +52,12 @@
             <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6">Latest Stories</h2>
 
             <div class="flex justify-center mb-4">
-                @include('components.latest-articles')
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+                    @foreach($publishedArticles as $article)
+                        <x-latest-articles-home :article="$article" />
+                    @endforeach
+                </div>
+
             </div>
 
         </div>
