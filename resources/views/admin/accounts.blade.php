@@ -91,7 +91,7 @@
 
             <div class="gap-6 flex flex-col md:flex-row">
 
-                <div class="mb-10 w-2/3">
+                <div class="mb-10 md:w-2/3 w-full">
                     <div class="bg-gray-100 flex items-center gap-2 overflow-x-auto p-2 rounded-t-xl">
                         <div class="text-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -104,7 +104,7 @@
                     <x-editor-table-active :editors="$activeEditors" />
                 </div>
 
-                <div class="mb-10 w-1/3 h-100">
+                <div class="mb-10 md:w-1/3 w-full">
                     <div class="bg-gray-100 flex items-center gap-2 overflow-x-auto p-2 rounded-t-xl">
                         <div class="text-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

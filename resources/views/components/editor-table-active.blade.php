@@ -1,6 +1,6 @@
 @props(['editors'])
 
-<div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden flex flex-col justify-between h-180">
+<div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden flex flex-col justify-between md:h-180 h-auto">
 
     <div class="w-full overflow-x-auto">
         <table class="w-full text-left border-collapse">
@@ -14,13 +14,13 @@
             <tbody class="divide-y divide-gray-100">
                 @forelse($editors as $editor)
                     <tr class="hover:bg-gray-50 transition-colors">
-                        <td class="px-6 py-4 text-sm font-medium text-gray-900">
+                        <td class="px-6 py-4 text-[10px] md:text-sm font-medium text-gray-900">
                             {{ $editor->editor_number }}
                         </td>
-                        <td class="px-6 py-4 text-sm text-gray-600">
+                        <td class="px-6 py-4 text-[10px] md:text-sm text-gray-600">
                             {{ $editor->full_name }}
                         </td>
-                        <td class="px-6 py-4 text-sm text-center text-gray-500">
+                        <td class="px-6 py-4 text-[10px] md:text-sm text-center text-gray-500">
                             {{ $editor->email }}
                         </td>
                     </tr>
