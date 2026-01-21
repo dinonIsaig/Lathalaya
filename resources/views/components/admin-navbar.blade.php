@@ -4,7 +4,7 @@
 
 <nav class="bg-white border-b border-neutral-light w-full sm:px-8 lg:px-18 mb-15 shadow-md fixed top-0 left-0 z-50">
     <div class="max-w-full mx-auto flex items-center justify-between">
-        
+
         <div class="flex items-center gap-10">
             <a href="{{ route('admin.home') }}" class="flex items-center p-5 gap-2 ">
                 <div class="bg-primary rounded-md ">
@@ -41,4 +41,4 @@
     </div>
 </nav>
 
-<x-confirm-signout-modal id="confirmSignOutModal" type="dashboard"/>
+<x-confirm-signout-modal id="confirmSignOutModal" type="admin"/>
