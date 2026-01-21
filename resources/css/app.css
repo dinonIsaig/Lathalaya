@@ -92,6 +92,8 @@
         @apply bg-tags-bg text-primary text-xs font-semibold px-2 py-1 rounded;
     }
 
-
+    .pagination-btn {
+        @apply  bg-white text-primary px-6 py-1.5 rounded-lg font-medium cursor-pointer border border-primary hover:shadow-md transition hover:bg-primary hover:text-white hover:ring-1
+    }
 
 }

@@ -17,6 +17,7 @@
                 <a href="{{ route('admin.home') }}" class="nav-text {{ Request::routeIs('admin.home') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Home</a>
                 <a href="{{ route('admin.create-article') }}" class="nav-text {{ Request::routeIs('admin.create-article') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Create Article</a>
                 <a href="{{ route('admin.dashboard') }}" class="nav-text {{ Request::routeIs('admin.dashboard') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Dashboard</a>
+                <a href="{{ route('admin.accounts') }}" class="nav-text {{ Request::routeIs('admin.accounts') ? 'text-primary border-primary font-bold' : 'text-primary hover:text-neutral-gray'}}">Accounts</a>
             </div>
         </div>
 

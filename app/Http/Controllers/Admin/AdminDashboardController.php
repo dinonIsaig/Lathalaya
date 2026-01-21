@@ -16,16 +16,18 @@ class AdminDashboardController extends Controller
 
     public function index(Request $request)
     {
-        
+
         $pendingArticles = Article::with('author')
-        ->where('status', 'Pending') 
+        ->where('status', 'Pending')
         ->latest('created_at')
-        ->get();
+        ->paginate(10)
+        ->withQueryString();
 
         $publishedArticles = Article::with('author')
-        ->where('status', 'Published') 
+        ->where('status', 'Published')
         ->latest('created_at')
-        ->get();
+        ->paginate(10)
+        ->withQueryString();
 
         $query = Article::query()->where('status', '!=', 'Pending');
 
@@ -41,11 +43,11 @@ class AdminDashboardController extends Controller
 
 
         return view('admin.dashboard', compact(
-                'articles', 
-                'pendingArticles', 
-                'publishedArticles', 
-                'totalArticles', 
-                'publishedCount', 
+                'articles',
+                'pendingArticles',
+                'publishedArticles',
+                'totalArticles',
+                'publishedCount',
                 'pendingCount'
             ));
     }
