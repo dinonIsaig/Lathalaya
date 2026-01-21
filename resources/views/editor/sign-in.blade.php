@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', 'Sign In')
@@ -18,17 +19,17 @@
 
     <div class="flex justify-center">
         <div class=" p-4 rounded-lg inline-block w-1/5">
-            <a href="{{ route('lathalaya')}}">
+            <a href="{{ route('pam.account.type')}}">
                 <img src="{{ asset('assets/images/lathalayaLogo.png') }}" alt="Logo" class="w-full h-auto">
             </a>
         </div>
     </div>
 
     <h1 class="text-2xl font-bold text-text-primary max-sm:text-md">Welcome Back</h1>
-    <p class="text-[#4A5565] text-md mb-8 max-sm:text-sm tracking-tight">Sign in to your LathaLaya account</p>
+    <p class="text-[#4A5565] text-md mb-8 max-sm:text-sm tracking-tight">Sign in to your LathaLaya editor account</p>
 
     <div class="relative z-10 text-left w-1/5 max-w-lg max-md:w-md rounded-lg shadow-xl p-8">
-        <form method="POST" action="{{ route('author.sign-in') }}" class="space-y-4">
+        <form method="POST" action="{{ route('editor.sign-in') }}" class="space-y-4">
             @csrf
 
             @if ($errors->any())
@@ -85,7 +86,7 @@
 
             <div class="flex gap-2 justify-center mt-4">
                 <p class="text-[#4A5565] tracking-tight">don't have an account?</p>
-                <a href="{{ route('author.sign-up.form') }}" class="font-semibold text-button  hover:underline">Sign Up</a>
+                <a href="{{ route('editor.sign-up.form') }}" class="font-semibold text-button  hover:underline">Sign Up</a>
             </div>
 
         </form>
