@@ -15,9 +15,9 @@
 @section('content')
 <div class="min-h-screen flex flex-col items-center justify-center p-6">
 
-    <div class="mb-6 flex justify-center">
-        <div class="w-24 md:w-32">
-            <img src="{{ asset('assets/images/lathalayaLogo.png') }}" alt="Logo" class="w-full h-auto">
+    <div class="flex justify-center">
+        <div class=" p-4 rounded-lg inline-block w-1/5">
+            <img src="{{ asset('assets/images/lathalayaLogo.png') }}" alt="Logo">
         </div>
     </div>
 

@@ -72,8 +72,8 @@
             </div>
 
             <div class="flex gap-2 justify-center mt-4">
-                <p class="text-[#4A5565] tracking-tight">Already have an account?</p>
-                <a href="" class="font-semibold text-button  hover:underline">Sign In</a>
+                <p class="text-[#4A5565] tracking-tight">Don't have an account?</p>
+                <a href="{{ route('author.register') }}" class="font-semibold text-button  hover:underline">Sign Up</a>
             </div>
 
         </form>

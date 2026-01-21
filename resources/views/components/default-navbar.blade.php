@@ -16,13 +16,13 @@
 
         <div class="flex items-center gap-4">
             <div class="flex items-center gap-3">
-                <button class=" normal-btn-outline">
+                <a href="{{ route('author.login') }}" class="normal-btn">
                     Log In
-                </button>
+                </a>    
 
-                <button class=" normal-btn">
+                <a href="{{ route('author.register') }}" class="normal-btn">
                     Sign Up
-                </button>
+                </a> 
             </div>
 
             <button class=" text-neutral-gray hover:text-primary transition-colors p-1">
