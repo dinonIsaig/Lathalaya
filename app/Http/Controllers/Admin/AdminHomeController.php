@@ -13,9 +13,9 @@ class AdminHomeController extends Controller
     public function index(Request $request)
     {
         $articles = Article::where('status', 'Published')->latest()->take(9)->get();
-            
+
             return view('admin.home', [
-                'publishedArticles' => $articles 
+                'publishedArticles' => $articles
             ]);
     }
 
