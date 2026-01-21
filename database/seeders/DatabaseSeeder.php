@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call(AuthorAdminSeeder::class);
         $this->call(ArticleSeeder::class);
-        $this->call(EditorsIDSeeder::class);
+        $this->call(EditorWithIDSeeder::class);
 
     }
 }
