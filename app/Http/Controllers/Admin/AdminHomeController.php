@@ -14,9 +14,12 @@ class AdminHomeController extends Controller
     {
         $articles = Article::where('status', 'Published')->latest()->take(9)->get();
 
-            return view('admin.home', [
-                'publishedArticles' => $articles
-            ]);
+        $header = Article::where('status', 'Published')->latest()->first();
+
+        return view('admin.home', [
+            'publishedArticles' => $articles,
+            'headerArticle' => $header
+        ]);
     }
 
 

@@ -13,9 +13,12 @@ class LathalayaController extends Controller
     {
         $articles = Article::where('status', 'Published')->latest()->take(9)->get();
 
-            return view('lathalaya', [
-                'publishedArticles' => $articles
-            ]);
+        $header = Article::where('status', 'Published')->latest()->first();
+
+        return view('lathalaya', [
+            'publishedArticles' => $articles,
+            'headerArticle' => $header
+        ]);
     }
 
 

@@ -36,7 +36,7 @@
                             <div>
                                 <div class="mt-3 border border-gray-200 rounded-xl overflow-hidden bg-neutral-light w-full aspect-[17/9] md:aspect-[3/1]">
                                     <img id="preview-image" 
-                                        src="{{ asset('assets/images/articleImg.png') }}" 
+                                        src="{{ $article->cover_image ? asset('storage/' . $article->cover_image) : asset('assets/images/articleImg.png') }}" 
                                         class="w-full h-full object-cover"/>
                                 </div>
 
