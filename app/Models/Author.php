@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Author extends Model
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+
+class Author extends Model implements Authenticatable
 {
-    use Notifiable;
+    use AuthenticatableTrait, Notifiable;
     protected $primaryKey = 'author_id';
-    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
      */
     protected $fillable = [
-        'auhtor_id',
+        'author_id',
         'full_name',
         'email',
         'password',
@@ -35,5 +37,7 @@ class Author extends Model
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    protected $guarded = ['password'];
 
 }
