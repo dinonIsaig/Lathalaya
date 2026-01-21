@@ -1,5 +1,5 @@
 @php
-    $user = request()->is('admin*') ? Auth::guard('admin')->user() : Auth::user();
+    $user = request()->is('pam/admin*') ? Auth::guard('admin')->user() : Auth::user();
 @endphp
 
 <nav class="bg-white border-b border-neutral-light w-full sm:px-8 lg:px-18 mb-15 shadow-md fixed top-0 left-0 z-50">
@@ -24,10 +24,10 @@
         <div class="flex items-center gap-4">
             <div class="flex items-center gap-3 bg-neutral-light px-3 py-1.5 rounded-lg ring-1 ring-black/5">
                 <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold">
-                    {{ substr($user->first_name ?? 'A', 0, 1) }}{{ substr($user->last_name ?? 'A', 0, 1) }}
+                    {{$user->initials}}
                 </div>
                 <div class="hidden sm:block text-left leading-tight">
-                    <p class="text-sm  text-text-primary">{{ $user->first_name ?? 'Guest Admin' }} {{ $user->last_name ?? '' }}</p>
+                    <p class="text-sm  text-text-primary">{{ $user->full_name  ?? 'Guest Admin' }}</p>
                     <p class="text-[10px] text-neutral-gray uppercase tracking-wider">Admin</p>
                 </div>
             </div>
