@@ -125,3 +125,7 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    @vite('resources/js/notifications.js')
+@endpush

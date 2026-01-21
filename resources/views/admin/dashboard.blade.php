@@ -13,7 +13,7 @@
 @endif
 
 @if (session('error'))
-    <div id="alert-error" class="absolute top-10 right-200 z-[100] flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 border border-red-300 shadow-lg" role="alert">
+    <div id="alert-error" class="absolute top-10 right-200 z-[100] flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 border border-red-300 shadow-lg transition-opacity duration-500" role="alert">
         <div class="ms-3 text-sm font-medium">
             {{ session('error') }}
         </div>
@@ -203,5 +203,6 @@
 
 @push('scripts')
     @vite('resources/js/deletion.js')
+    @vite('resources/js/notifications.js')
 @endpush
 
