@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminUpdateArticleController;
 use App\Http\Controllers\Admin\AdminArticleController;
+use App\Http\Controllers\Admin\AdminAccountController;
 
 
 use App\Http\Controllers\LathalayaController;
@@ -40,7 +41,8 @@ Route::prefix('pam')->group(function () {
             Route::get('/create', [AdminArticleController::class, 'index'])->name('admin.create-article');
             Route::post('/store', [AdminArticleController::class, 'store'])->name('admin.store-article');
             Route::patch('/publish-article/{id}', [AdminArticleController::class, 'publish'])->name('admin.article.publish');
-
+            Route::get('/accounts', [AdminAccountController::class, 'index'])->name('admin.accounts')->middleware('auth:admin');
+            Route::post('/admin/accounts/add', [AdminAccountController::class, 'store'])->name('admin.add-editor');
 
     });
 

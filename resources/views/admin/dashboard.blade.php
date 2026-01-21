@@ -79,7 +79,7 @@
                 </div>
                 @include('components.filter')
             </div>
-                
+
             <div class="mb-10">
                 <div class="flex items-center gap-2 overflow-x-auto pb-5">
                     <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,9 +99,9 @@
                                 <th class="px-6 py-4 text-center">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-100">     
-                            @forelse($pendingArticles as $article)  
-                            <tr class="hover:bg-slate-50 transition-colors">                                
+                        <tbody class="divide-y divide-gray-100">
+                            @forelse($pendingArticles as $article)
+                            <tr class="hover:bg-slate-50 transition-colors">
                                 <x-admin-articles :article="$article" />
                                 <td class="px-6 py-4">
                                     <div class="flex items-center justify-center gap-3">
@@ -111,7 +111,7 @@
 
                                         <button onclick="window.location='{{ route('admin.update-article.edit', $article->article_id) }}'" class="edit-btn">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                                        </button>                                     
+                                        </button>
 
                                         <button onclick="openPublishModal({{ $article->article_id }})" class="normal-btn py-1 text-sm">Publish</button>
                                     </div>
@@ -126,6 +126,7 @@
                                 @endforelse
                         </tbody>
                     </table>
+                    <x-pagination :items="$pendingArticles" :type="'pending articles'" />
                 </div>
             </div>
 
@@ -139,7 +140,7 @@
                     <h2 class="font-bold text-black text-lg">Published Articles</h2>
                 </div>
 
-                
+
                 <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-x-auto mb-5">
                     <table class="w-full text-left border-collapse">
                         <thead>
@@ -151,9 +152,9 @@
                                 <th class="px-6 py-4 text-center">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-100">     
-                            @forelse($publishedArticles as $article)  
-                            <tr class="hover:bg-slate-50 transition-colors">                                
+                        <tbody class="divide-y divide-gray-100">
+                            @forelse($publishedArticles as $article)
+                            <tr class="hover:bg-slate-50 transition-colors">
                                 <x-admin-articles :article="$article" />
                                 <td class="px-6 py-4">
                                     <div class="flex items-center justify-center gap-3">
@@ -185,11 +186,11 @@
                                     </td>
                                 </tr>
                                 @endforelse
-                        </tbody>                    
-                        
+                        </tbody>
                     </table>
+                    <x-pagination :items="$publishedArticles" :type="'published articles'" />
                 </div>
-                
+
             </div>
         </div>
     </div>

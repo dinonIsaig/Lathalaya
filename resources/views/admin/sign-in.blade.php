@@ -26,7 +26,7 @@
     </div>
 
     <h1 class="text-2xl font-bold text-text-primary max-sm:text-md">Welcome Back</h1>
-    <p class="text-[#4A5565] text-md mb-8 max-sm:text-sm tracking-tight">Sign in to your LathaLaya account</p>
+    <p class="text-[#4A5565] text-md mb-8 max-sm:text-sm tracking-tight">Sign in to your LathaLaya admin account</p>
 
     <div class="relative z-10 text-left w-1/5 max-w-lg max-md:w-md rounded-lg shadow-xl p-8">
         <form method="POST" action="{{ route('admin.sign-in') }}" class="space-y-4">
@@ -72,11 +72,6 @@
                 <button class="normal-btn w-full py-1.5 text-sm">
                     Sign In
                 </button>
-            </div>
-
-            <div class="flex gap-2 justify-center mt-4">
-                <p class="text-[#4A5565] tracking-tight">don't have an account?</p>
-                <a href="" class="font-semibold text-button  hover:underline">Sign Up</a>
             </div>
 
         </form>
