@@ -97,12 +97,7 @@
                     </div>
                     <input type="password" name="password" id="password" class="input-field" placeholder="Password123">
                     <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                        <button type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </button>
+                        <i class="fas fa-eye-slash toggle-password cursor-pointer text-gray-400 hover:text-gray-600"></i>
                     </div>
                 </div>
                 @error('password')
@@ -123,12 +118,7 @@
                     </div>
                     <input type="password" name="password_confirmation" id="password_confirmation" class="input-field" placeholder="Password123">
                     <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                        <button type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </button>
+                        <i class="fas fa-eye-slash toggle-password cursor-pointer text-gray-400 hover:text-gray-600"></i>
                     </div>
                 </div>
             </div>
@@ -148,4 +138,9 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+@vite(['resources/js/toggle-password.js'])
+@endpush
+
 
