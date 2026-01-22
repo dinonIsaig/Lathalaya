@@ -15,9 +15,11 @@
 @section('content')
 <div class="min-h-screen flex flex-col items-center justify-center p-6">
 
-    <div class="flex justify-center">
-        <div class=" p-4 rounded-lg inline-block w-1/5">
-            <img src="{{ asset('assets/images/lathalayaLogo.png') }}" alt="Logo">
+    <div class="mb-6 flex justify-center">
+        <div class="w-24 md:w-32">
+            <a href="{{ route('lathalaya')}}">
+                <img src="{{ asset('assets/images/lathalayaLogo.png') }}" alt="Logo" class="w-full h-auto">
+            </a>
         </div>
     </div>
 
@@ -27,8 +29,8 @@
     </div>
 
     <div class="flex flex-col md:flex-row gap-8 w-full max-w-5xl justify-center items-stretch">
-        
-        <a href="{{ route('editor.dashboard') }}" class="flex-1 max-w-sm group">
+
+        <a href="{{ route('editor.sign-in.form') }}" class="flex-1 max-w-sm group">
             <div class="h-full bg-white rounded-3xl shadow-xl p-8 border border-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div class="h-3 w-full rounded-full bg-gradient-to-r from-[#175668] to-[#2EAACE] mb-8"></div>
                 <h2 class="text-2xl font-bold text-slate-900 mb-4">Editor</h2>
@@ -38,7 +40,7 @@
             </div>
         </a>
 
-        <a href="{{ route('admin.home') }}" class="flex-1 max-w-sm group">
+        <a href="{{ route('admin.sign-in.form') }}" class="flex-1 max-w-sm group">
             <div class="h-full bg-white rounded-3xl shadow-xl p-8 border border-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div class="h-3 w-full rounded-full bg-gradient-to-r from-[#175668] to-[#2EAACE] mb-8"></div>
                 <h2 class="text-2xl font-bold text-slate-900 mb-4">Administrator</h2>

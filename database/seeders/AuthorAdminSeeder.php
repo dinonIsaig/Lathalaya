@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class AuthorSeeder extends Seeder
+class AuthorAdminSeeder extends Seeder
 {
     public function run(): void
     {
@@ -18,6 +18,12 @@ class AuthorSeeder extends Seeder
             'password' => Hash::make('password123'),
             'created_at' => now(),
             'updated_at' => now(),
+        ]);
+
+        DB::table('admins')->insert([
+            'full_name' => 'Sample Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password123'),
         ]);
     }
 }

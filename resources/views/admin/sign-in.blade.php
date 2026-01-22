@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', 'Sign In')
@@ -10,7 +11,6 @@
         background-repeat: no-repeat;
     }
 </style>
-
 @endpush
 
 @section('content')
@@ -18,25 +18,18 @@
 
     <div class="flex justify-center">
         <div class=" p-4 rounded-lg inline-block w-1/5">
-            <a href="{{ route('lathalaya')}}">
+            <a href="{{ route('pam.account.type')}}">
                 <img src="{{ asset('assets/images/lathalayaLogo.png') }}" alt="Logo" class="w-full h-auto">
             </a>
         </div>
     </div>
 
     <h1 class="text-2xl font-bold text-text-primary max-sm:text-md">Welcome Back</h1>
-    <p class="text-[#4A5565] text-md mb-8 max-sm:text-sm tracking-tight">Sign in to your LathaLaya account</p>
+    <p class="text-[#4A5565] text-md mb-8 max-sm:text-sm tracking-tight">Sign in to your LathaLaya admin account</p>
 
     <div class="relative z-10 text-left w-1/5 max-w-lg max-md:w-md rounded-lg shadow-xl p-8">
-        <form method="POST" action="{{ route('author.sign-in') }}" class="space-y-4">
+        <form method="POST" action="{{ route('admin.sign-in') }}" class="space-y-4">
             @csrf
-
-            @if ($errors->any())
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                    <strong class="font-bold">Error!</strong>
-                    <span class="block sm:inline">{{ $errors->first() }}</span>
-                </div>
-            @endif
 
             <div>
                 <label for="email" class="mb-2 block text-sm text-gray-700">
@@ -48,11 +41,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
                     </div>
-                    <input type="email" name="email" id="email" class="input-field" placeholder="you@example.com" value="{{ old('email') }}">
+                    <input type="email" name="email" id="email" class="input-field" placeholder="you@example.com">
                 </div>
-                @error('email')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
             </div>
 
             <div>
@@ -78,11 +68,6 @@
                 </button>
             </div>
 
-            <div class="flex gap-2 justify-center mt-4">
-                <p class="text-[#4A5565] tracking-tight">don't have an account?</p>
-                <a href="{{ route('author.sign-up.form') }}" class="font-semibold text-button  hover:underline">Sign Up</a>
-            </div>
-
         </form>
     </div>
 </div>
@@ -91,4 +76,3 @@
 @push('scripts')
 @vite(['resources/js/toggle-password.js'])
 @endpush
-

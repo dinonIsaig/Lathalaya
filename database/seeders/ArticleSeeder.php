@@ -35,7 +35,7 @@ class ArticleSeeder extends Seeder
             DB::table('articles')->insert([
                 'author_id'   => $faker->randomElement($authorIds),
                 'title'       => $faker->sentence(6),
-                'cover_image' => $faker->imageUrl(640, 480, 'business', true),
+                'cover_image' => null,
                 'Category'    => $faker->randomElement($categories),
                 'content'     => $faker->paragraphs(4, true),
                 'status'      => $faker->randomElement(['Pending', 'Published']),

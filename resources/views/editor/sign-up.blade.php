@@ -18,17 +18,17 @@
 
     <div class="flex justify-center">
         <div class=" p-4 rounded-lg inline-block w-1/5">
-            <a href="{{ route('lathalaya')}}">
+            <a href="{{ route('pam.account.type')}}">
                 <img src="{{ asset('assets/images/lathalayaLogo.png') }}" alt="Logo" class="w-full h-auto">
             </a>
         </div>
     </div>
 
     <h1 class="text-2xl font-bold text-text-primary max-sm:text-md">Create Your Account</h1>
-    <p class="text-[#4A5565] text-md mb-8 max-sm:text-sm tracking-tight">Create account and start writing articles</p>
+    <p class="text-[#4A5565] text-md mb-8 max-sm:text-sm tracking-tight">Create your editor account</p>
 
     <div class="relative z-10 text-left w-1/5 max-w-lg max-md:w-md rounded-lg shadow-xl p-8">
-        <form method="POST" action="{{ route('author.sign-up') }}" class="space-y-4">
+        <form method="POST" action="{{ route('editor.sign-up') }}" class="space-y-4">
             @csrf
 
 
@@ -64,6 +64,23 @@
                     <input type="email" name="email" id="email" class="input-field" placeholder="JohnDoe@gmail.com" value="{{ old('email') }}">
                 </div>
                 @error('email')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div>
+                <label for="editor_number" class="mb-2 block text-sm text-gray-700">
+                    Editor Number
+                </label>
+                <div class="relative rounded-md shadow-sm">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </div>
+                    <input type="text" name="editor_number" id="editor_number" class="input-field" placeholder="1001" value="{{ old('editor_number') }}">
+                </div>
+                @error('editor_number')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
@@ -114,7 +131,7 @@
 
             <div class="flex gap-2 justify-center mt-4">
                 <p class="text-[#4A5565] tracking-tight">Already have an account?</p>
-                <a href="{{ route('author.sign-in.form') }}" class="font-semibold text-button  hover:underline">Sign In</a>
+                <a href="{{ route('editor.sign-in.form') }}" class="font-semibold text-button  hover:underline">Sign In</a>
             </div>
 
         </form>

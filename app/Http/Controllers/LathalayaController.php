@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Article;
 
 
-class AdminHomeController extends Controller
+class LathalayaController extends Controller
 {
     public function index(Request $request)
     {
@@ -16,7 +15,7 @@ class AdminHomeController extends Controller
 
         $header = Article::where('status', 'Published')->latest()->first();
 
-        return view('admin.home', [
+        return view('lathalaya', [
             'publishedArticles' => $articles,
             'headerArticle' => $header
         ]);
