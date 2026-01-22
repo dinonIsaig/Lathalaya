@@ -71,7 +71,7 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100">
-                            @foreach($articles as $article)
+                            @forelse($articles as $article)
                             <tr class="hover:bg-slate-50 transition-colors">
                                 <td class="px-6 py-4 flex items-center gap-4 w-full min-w-[400px]">
                                     <img src="{{ $article->cover_image ? asset('storage/' . $article->cover_image) : asset('assets/images/defaultImg.jpg') }}" 
@@ -85,7 +85,7 @@
                                 </td>
                                 
                                 <td class="px-6 py-4 text-center">
-                                    <span class="category-tag inline-block">{{ $article->Category }}</span>
+                                    <span class="category-tag inline-block">{{ $article->category }}</span>
                                 </td>
 
                                 <td class="px-6 py-4 text-sm text-slate-500 text-center whitespace-nowrap">
@@ -98,7 +98,13 @@
                                     </span>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="px-6 py-6 text-center text-gray-500">
+                                        No articles found.
+                                    </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
