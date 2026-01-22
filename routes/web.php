@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminAccountController;
 use App\Http\Controllers\LathalayaController;
 use App\Http\Controllers\Editor\EditorDashboardController;
 use App\Http\Controllers\Editor\EditorUpdateArticleController;
+use App\Http\Controllers\Editor\EditorArticleController;
 use App\Http\Controllers\Author\AuthorDashboardController;
 use App\Http\Controllers\ArticleController;
 
@@ -53,6 +54,7 @@ Route::prefix('pam')->group(function () {
             Route::get('/sign-up', [EditorAuthController::class, 'showSignUpForm'])->name('editor.sign-up.form');
             Route::post('/sign-up', [EditorAuthController::class, 'signUp'])->name('editor.sign-up');
             Route::post('/sign-out', [EditorAuthController::class, 'signOut'])->name('editor.sign-out');
+            Route::get('/article/{id}', [EditorArticleController::class, 'show'])->name('editor.article-view');
             Route::get('/dashboard', [EditorDashboardController::class, 'index'])->name('editor.dashboard')->middleware('auth:editor');
             Route::delete('/dashboard', [EditorDashboardController::class, 'destroy'])->name('editor.dashboard.destroy');
             Route::put('/update-article/{id}', [EditorUpdateArticleController::class, 'update'])->name('editor.update-article.submit');
