@@ -13,6 +13,15 @@ class AuthorAdminSeeder extends Seeder
     {
         DB::table('authors')->insert([
             'author_id' => 1,
+            'full_name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password123'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('authors')->insert([
+            'author_id' => 2,
             'full_name' => 'Sample Author',
             'email' => 'author@example.com',
             'password' => Hash::make('password123'),

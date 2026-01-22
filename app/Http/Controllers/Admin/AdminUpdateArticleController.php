@@ -20,11 +20,25 @@ class AdminUpdateArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'content' => 'required',
+            'content' => 'required', 
         ]);
 
         $article = Article::where('article_id', $id)->firstOrFail();
-        $article->update($request->all());
+        
+        $data = $request->except('cover_image');
+
+        //this is to delete the old photo to save storage
+        if ($request->hasFile('cover_image')) {
+            if ($article->cover_image && \Storage::disk('public')->exists($article->cover_image)) {
+                \Storage::disk('public')->delete($article->cover_image);
+            } 
+
+            $path = $request->file('cover_image')->store('articles', 'public');
+
+            $data['cover_image'] = $path;
+        }
+
+        $article->update($data);
 
         return redirect()->route('admin.dashboard')->with('success', 'Article updated successfully!');
     }
