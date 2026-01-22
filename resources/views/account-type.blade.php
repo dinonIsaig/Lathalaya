@@ -16,7 +16,7 @@
 <div class="min-h-screen flex flex-col items-center justify-center p-6">
 
     <div class="mb-6 flex justify-center">
-        <div class="w-24 md:w-32">
+        <div class="w-24 md:w-20">
             <a href="{{ route('lathalaya')}}">
                 <img src="{{ asset('assets/images/lathalayaLogo.png') }}" alt="Logo" class="w-full h-auto">
             </a>
