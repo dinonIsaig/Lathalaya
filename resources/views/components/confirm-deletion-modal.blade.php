@@ -14,7 +14,7 @@
         assessment, as this article will be removed.
       </p>
       
-      <form method="POST" action="{{ route('admin.' . $type . '.destroy') }}">
+        <form action="{{ request()->is('pam/admin*') ? route('admin.dashboard.destroy') : route('editor.dashboard.destroy') }}" method="POST">
         @csrf
         @method('DELETE')
         
