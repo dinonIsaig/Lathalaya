@@ -1,7 +1,7 @@
 @props(['article'])
 
     <td class="px-4 py-4 flex items-center gap-2 ">
-        <img src="{{ asset('assets/images/defaultImg.jpg') }}" 
+        <img src="{{ $article->cover_image ? asset('storage/'.$article->cover_image) : asset('assets/images/defaultImg.jpg') }}" 
              class="w-12 h-10 rounded-lg object-cover" 
              alt="Article Thumbnail">
         <div class="min-w-0"> 
