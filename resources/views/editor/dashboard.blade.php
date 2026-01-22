@@ -126,7 +126,7 @@
                                 @endforelse
                         </tbody>
                     </table>
-                    <x-pagination :items="$pendingArticles" :type="'pending articles'"/>
+                    <x-pagination :items="$pendingArticles->appends(request()->query())" :type="'pending articles'"/>
                 </div>
             </div>
 
@@ -188,7 +188,7 @@
                                 @endforelse
                         </tbody>                    
                     </table>
-                    <x-pagination :items="$publishedArticles" :type="'published articles'"/>
+                    <x-pagination :items="$publishedArticles->appends(request()->query())" :type="'published articles'"/>
                 </div>
                 
             </div>

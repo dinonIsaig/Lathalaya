@@ -11,11 +11,8 @@ use App\Http\Controllers\Admin\AdminAccountController;
 use App\Http\Controllers\LathalayaController;
 use App\Http\Controllers\Editor\EditorDashboardController;
 use App\Http\Controllers\Editor\EditorUpdateArticleController;
-<<<<<<< HEAD
 use App\Http\Controllers\Editor\EditorArticleController;
-=======
 use App\Http\Controllers\Author\AuthorHomeController;
->>>>>>> f9d100b9e6e4b765e85dbcbd493a51156b420d16
 use App\Http\Controllers\Author\AuthorDashboardController;
 use App\Http\Controllers\ArticleController;
 
