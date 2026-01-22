@@ -23,10 +23,11 @@
                 </button>
             </div>
 
+        <a href="{{ route('admin.article-view', $headerArticle->article_id) }}" class="block no-underline group">
             <div class="justify-center w-full mb-10">
                 @if($headerArticle)
                     <div class="top-4 right-4 flex items-center mb-2">
-                        <div class="bg-black rounded-xl relative overflow-hidden w-full aspect-[17/9] md:aspect-[3/1]">
+                        <div class="bg-black hover:opacity-93 transition-all rounded-xl relative overflow-hidden w-full aspect-[17/9] md:aspect-[3/1]">
                             <img src="{{ $headerArticle->cover_image ? asset('storage/' . $headerArticle->cover_image) : asset('assets/images/articleImg.png') }}"
                                                             alt="{{ $headerArticle->title }}"
                                                             class="object-cover rounded-lg w-full h-full">
@@ -41,8 +42,9 @@
                                 </h1>
 
                                 <p class="text-xs md:text-sm opacity-80 mt-2">
-                                    By {{ $headerArticle->author_name ?? 'Staff Writer' }}
+                                    By {{ $headerArticle->author->full_name ?? 'Unknown' }} &#10240; • &#10240; {{ $headerArticle->created_at->format('F d, Y') }}
                                 </p>
+
                             </div>
                         </div>
                     </div>
@@ -50,6 +52,7 @@
                     <p class="text-center text-gray-500">No featured stories available.</p>
                 @endif
             </div>
+        </a>
 
             <div x-data="{ open : false }">
                 <div class="flex justify-end mb-4">
@@ -68,7 +71,7 @@
             <div class="flex justify-center mb-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
                     @foreach($publishedArticles as $article)
-                        <x-latest-articles-home :article="$article" />
+                        <x-latest-articles-home :article="$article" route="admin.article-view" />
                     @endforeach
                 </div>
 

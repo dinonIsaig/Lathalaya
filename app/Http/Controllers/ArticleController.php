@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -46,7 +47,7 @@ class ArticleController extends Controller
             'category' => $request->category,
             'content' => $request->content,
             'cover_image' => $imagePath,
-            'author_id' => 1, //temporary hardcoded author ID, use author seeder for sample author
+            'author_id' => Auth::guard('author')->id(),
         ]);
 
         return redirect()->route('author.article-view', ['id' => $article->article_id])

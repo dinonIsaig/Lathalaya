@@ -15,15 +15,24 @@
                 </a>
             </div>
 
-            <header class="mb-8">
-                <div class="flex justify-between items-center mb-2">
-                    
+            <header class="mb-8 flex justify-between items-start">
+                <div class="flex-1">
                     <div class="inline-block bg-tags px-3 py-1 rounded-full">
                         <span class="text-white font-bold tracking-wider text-xs">
                             {{ $article->category }}
                         </span>
                     </div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4 leading-tight">
+                        {{ $article->title }}
+                    </h1>
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <span class="font-medium text-slate-800">By {{ $article->author->name ?? 'Author Name' }}</span>
+                        <span class="mx-2">•</span>
+                        <span>{{ $article->created_at->format('M d, Y') }}</span>
+                    </div>
+                </div>
 
+                <div class="ml-4">
                     <button onclick="window.location='{{ route('admin.update-article.edit', $article->article_id) }}'"
                         class="normal-btn flex items-center px-3 md:px-4">
                         <svg class="w-4 h-4 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
@@ -32,16 +41,6 @@
                         </svg>
                         <span class="hidden sm:inline-block ml-1 tracking-tight text-base">Edit Article</span>
                     </button>
-                    
-                </div>
-
-                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4 leading-tight">
-                    {{ $article->title }}
-                </h1>
-                <div class="flex items-center text-gray-500 text-sm">
-                    <span class="font-medium text-slate-800">By {{ $article->author->name ?? 'Author Name' }}</span>
-                    <span class="mx-2">•</span>
-                    <span>{{ $article->created_at->format('M d, Y') }}</span>
                 </div>
             </header>
 
@@ -73,8 +72,6 @@
                     <p class="text-sm text-gray-500">Contributing Writer</p>
                 </div>
             </div>
-
-            
         </div>
     </div>
 </div>
@@ -85,7 +82,6 @@
 
 @push('scripts')
 <script>
-    
     @if(session('success'))
         document.addEventListener('DOMContentLoaded', function() {
             const modal = document.getElementById('confirmSubmittedModal');
@@ -96,4 +92,3 @@
     @endif
 </script>
 @endpush
-

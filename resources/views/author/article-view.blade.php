@@ -2,6 +2,7 @@
 
 @section('title', $article->title)
 
+
 @section('content')
 <div class="flex h-screen bg-neutral-light">
     <div class="flex-1 pt-30 overflow-auto">
@@ -18,14 +19,14 @@
             <header class="mb-8">
                 <div class="inline-block bg-button px-3 py-1 rounded-full">
                     <span class="text-white font-bold tracking-wider text-xs">
-                        {{ $article->Category }}
+                        {{ $article->category }}
                     </span>
                 </div>
                 <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4 leading-tight">
                     {{ $article->title }}
                 </h1>
                 <div class="flex items-center text-gray-500 text-sm">
-                    <span class="font-medium text-slate-800">By {{ $article->author->name ?? 'Author Name' }}</span>
+                    <span class="font-medium text-slate-800">By {{ $article->author->full_name ?? 'Author Name' }}</span>
                     <span class="mx-2">•</span>
                     <span>{{ $article->created_at->format('M d, Y') }}</span>
                 </div>
@@ -51,11 +52,11 @@
 
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold">
-                    {{ strtoupper(substr($article->author->name ?? 'AN', 0, 2)) }}
+                    {{ strtoupper(substr($article->author->full_name ?? 'AN', 0, 2)) }}
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-slate-900">{{ $article->author->name ?? 'Author Name' }}</h4>
+                    <h4 class="font-bold text-slate-900">{{ $article->author->full_name ?? 'Author Name' }}</h4>
                     <p class="text-sm text-gray-500">Contributing Writer</p>
                 </div>
             </div>
