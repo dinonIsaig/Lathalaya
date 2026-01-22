@@ -14,7 +14,7 @@
 
 
     <td class="px-2 py-4 text-sm text-slate-600 md:px-6 whitespace-nowrap">
-        {{ $article->author->name ?? 'Unknown' }}
+        {{ $article->author->full_name ?? 'Unknown' }}
     </td>
 
 
