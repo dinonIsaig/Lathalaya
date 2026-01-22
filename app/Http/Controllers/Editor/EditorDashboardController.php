@@ -9,20 +9,25 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Carbon;
 
+
 class EditorDashboardController extends Controller
 {
+
+
     public function index(Request $request)
     {
-        
+
         $pendingArticles = Article::with('author')
-        ->where('status', 'Pending') 
+        ->where('status', 'Pending')
         ->latest('created_at')
-        ->get();
+        ->paginate(10)
+        ->withQueryString();
 
         $publishedArticles = Article::with('author')
-        ->where('status', 'Published') 
+        ->where('status', 'Published')
         ->latest('created_at')
-        ->get();
+        ->paginate(10)
+        ->withQueryString();
 
         $query = Article::query()->where('status', '!=', 'Pending');
 
@@ -38,11 +43,11 @@ class EditorDashboardController extends Controller
 
 
         return view('editor.dashboard', compact(
-                'articles', 
-                'pendingArticles', 
-                'publishedArticles', 
-                'totalArticles', 
-                'publishedCount', 
+                'articles',
+                'pendingArticles',
+                'publishedArticles',
+                'totalArticles',
+                'publishedCount',
                 'pendingCount'
             ));
     }
