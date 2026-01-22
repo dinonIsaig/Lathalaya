@@ -78,7 +78,7 @@
                             <button type="button" class="font-bold">B</button>
                             <button type="button" class="italic">I</button>
                             <button type="button">List</button>
-                            <button type="button">Link</button>
+                            <button type="button">🔗</button>
                         </div>
                         <textarea name="content" rows="10" placeholder="Write your article content here..." 
                                   class="w-full px-4 py-4 focus:outline-none text-gray-600 italic"></textarea>

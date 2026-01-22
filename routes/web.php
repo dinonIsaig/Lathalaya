@@ -40,7 +40,9 @@ Route::prefix('pam')->group(function () {
     // Editor Routes
     Route::prefix('editor')->group(function () {
             Route::get('/dashboard', [EditorDashboardController::class, 'index'])->name('editor.dashboard');
-            Route::get('/update-article', [EditorUpdateArticleController::class, 'index'])->name('editor.update-article');
+            Route::delete('/dashboard', [EditorDashboardController::class, 'destroy'])->name('editor.dashboard.destroy');
+            Route::put('/update-article/{id}', [EditorUpdateArticleController::class, 'update'])->name('editor.update-article.submit');
+            Route::get('/update-article/{id}', [EditorUpdateArticleController::class, 'index'])->name('editor.update-article.edit');
     });
 
 });
