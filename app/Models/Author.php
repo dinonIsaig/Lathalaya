@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
@@ -39,5 +39,20 @@ class Author extends Model implements Authenticatable
     ];
 
     protected $guarded = ['password'];
+
+    protected function initials(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                // Split by space and filter out empty strings
+                $words = explode(' ', trim($this->full_name ?? 'Guest Admin'));
+                
+                $first = $words[0][0] ?? ''; 
+                $second = $words[1][0] ?? '';
+
+                return strtoupper($first . $second);
+            },
+        );
+    }
 
 }

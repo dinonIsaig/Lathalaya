@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminAccountController;
 use App\Http\Controllers\LathalayaController;
 use App\Http\Controllers\Editor\EditorDashboardController;
 use App\Http\Controllers\Editor\EditorUpdateArticleController;
+use App\Http\Controllers\Author\AuthorHomeController;
 use App\Http\Controllers\Author\AuthorDashboardController;
 use App\Http\Controllers\ArticleController;
 
@@ -64,24 +65,14 @@ Route::prefix('pam')->group(function () {
 
 // Author Routes
     Route::prefix('author')->group(function () {
-
-
-    Route::get('/sign-in', [AuthorAuthController::class, 'showSignInForm'])->name('author.sign-in.form');
-    Route::post('/sign-in', [AuthorAuthController::class, 'signIn'])->name('author.sign-in');
-    Route::get('/sign-up', [AuthorAuthController::class, 'showSignUpForm'])->name('author.sign-up.form');
-    Route::post('/sign-up', [AuthorAuthController::class, 'signUp'])->name('author.sign-up');
-    Route::post('/sign-out', [AuthorAuthController::class, 'signOut'])->name('author.sign-out');
-
-        Route::get('/create', [ArticleController::class, 'index'])->name('author.create-article')->middleware('auth:author');
-
-        Route::post('/store', [ArticleController::class, 'store'])->name('author.store-article');
-
-        Route::get('/author/article/{id}', [ArticleController::class, 'show'])->name('author.article-view');
-
-        Route::get('/dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard')->middleware('auth:author');
-
-        Route::get('/home', function () {
-            return view('author.home');
-        })->name('author.home');
-
+            Route::get('/sign-in', [AuthorAuthController::class, 'showSignInForm'])->name('author.sign-in.form');
+            Route::post('/sign-in', [AuthorAuthController::class, 'signIn'])->name('author.sign-in');
+            Route::get('/sign-up', [AuthorAuthController::class, 'showSignUpForm'])->name('author.sign-up.form');
+            Route::post('/sign-up', [AuthorAuthController::class, 'signUp'])->name('author.sign-up');
+            Route::post('/sign-out', [AuthorAuthController::class, 'signOut'])->name('author.sign-out');
+            Route::get('/create', [ArticleController::class, 'index'])->name('author.create-article')->middleware('auth:author');
+            Route::post('/store', [ArticleController::class, 'store'])->name('author.store-article');
+            Route::get('/article/{id}', [ArticleController::class, 'show'])->name('author.article-view')->middleware('auth:author');
+            Route::get('/dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard')->middleware('auth:author');
+            Route::get('/home', [AuthorHomeController::class, 'index'])->name('author.home')->middleware('auth:author');
 });
