@@ -1,6 +1,6 @@
-@props(['article'])
+@props(['article', 'route' => 'admin.article-view' ])
 
-<a href="{{ route('admin.article-view', $article->article_id) }}" class="block no-underline group">
+<a href="{{ route($route, $article->article_id) }}" class="block no-underline group">
     <div class="transition-all duration-200 group-hover:scale-105 group-hover:shadow-xl cursor-pointer w-full h-full">
         <div class="bg-white rounded-lg shadow-md overflow-hidden w-full h-full flex flex-col">
             <img src="{{ $article->cover_image ? asset('storage/' . $article->cover_image) : asset('assets/images/articleImg.png') }}"
