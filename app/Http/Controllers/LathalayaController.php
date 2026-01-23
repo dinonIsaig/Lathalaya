@@ -11,7 +11,7 @@ class LathalayaController extends Controller
 {
     public function index(Request $request)
     {
-        $articles = Article::where('status', 'Published')->latest()->take(9)->get();
+        $articles = Article::where('status', 'Published')->latest()->skip(1)->take(9)->get();
 
         $header = Article::where('status', 'Published')->latest()->first();
 
@@ -20,6 +20,4 @@ class LathalayaController extends Controller
             'headerArticle' => $header
         ]);
     }
-
-
 }
