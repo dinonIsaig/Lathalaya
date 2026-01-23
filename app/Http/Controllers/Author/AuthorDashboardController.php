@@ -17,11 +17,17 @@ class AuthorDashboardController extends Controller
 
         $articles = Article::where('author_id', $authorId)
                             ->orderBy('created_at', 'desc')
-                            ->get();
+                            ->paginate(10);
 
-        $totalArticles = $articles->count();
-        $publishedCount = $articles->where('status', 'Published')->count();
-        $pendingCount = $articles->where('status', 'Pending')->count();
+        $totalArticles = $articles->total();
+
+        $publishedCount = Article::where('author_id', $authorId)
+                            ->where('status', 'Published')
+                            ->count();
+
+        $pendingCount = Article::where('author_id', $authorId)
+                            ->where('status', 'Pending')
+                            ->count();
 
         return view('author.dashboard', compact(
             'articles', 

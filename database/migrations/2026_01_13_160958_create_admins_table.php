@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id('admin_id');
-            $table->string('full_name', 50);
+            $table->string('first_name', 50);
+            $table->string('last_name', 50);
             $table->string('email', 100)->unique();
             $table->string('password');
         });
@@ -27,4 +28,3 @@ return new class extends Migration
         Schema::dropIfExists('admins');
     }
 };
-        

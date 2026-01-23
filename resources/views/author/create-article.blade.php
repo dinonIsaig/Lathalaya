@@ -78,7 +78,7 @@
                             <button type="button" class="font-bold">B</button>
                             <button type="button" class="italic">I</button>
                             <button type="button">List</button>
-                            <button type="button">Link</button>
+                            <button type="button">🔗</button>
                         </div>
                         <textarea name="content" rows="10" placeholder="Write your article content here..." 
                                   class="w-full px-4 py-4 focus:outline-none text-gray-600 italic"></textarea>
@@ -89,7 +89,7 @@
                     <a href="{{ route('author.home') }}" class="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">
                         Cancel
                     </a>
-                    <button type="submit" class="bg-button text-white px-6 py-1 rounded-[10px] hover:bg-primary-dark transition-colors">
+                    <button type="submit" class="bg-button text-white px-6 py-1 rounded-[10px] hover:bg-primary-dark transition-colors cursor-pointer font-semibold">
                         Submit for Review
                     </button>
                 </div>

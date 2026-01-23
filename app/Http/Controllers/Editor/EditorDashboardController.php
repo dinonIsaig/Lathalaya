@@ -5,48 +5,79 @@ namespace App\Http\Controllers\Editor;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Author;
+use App\Filters\ArticleFilter;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Carbon;
 
+
 class EditorDashboardController extends Controller
 {
+
+
     public function index(Request $request)
     {
-        
-        $pendingArticles = Article::with('author')
-        ->where('status', 'Pending') 
-        ->latest('created_at')
-        ->get();
+        $pendingQuery = Article::with('author')->where('status', 'Pending');
+        $pendingArticles = ArticleFilter::apply($pendingQuery, $request)
+            ->latest('created_at')
+            ->paginate(10)
+            ->withQueryString();
 
-        $publishedArticles = Article::with('author')
-        ->where('status', 'Published') 
-        ->latest('created_at')
-        ->get();
+        $publishedQuery = Article::with('author')->where('status', 'Published');
+        $publishedArticles = ArticleFilter::apply($publishedQuery, $request)
+            ->latest('created_at')
+            ->paginate(10)
+            ->withQueryString();
 
         $query = Article::query()->where('status', '!=', 'Pending');
+        $articles = ArticleFilter::apply($query, $request)
+            ->with('author')
+            ->latest('created_at')
+            ->paginate(10)
+            ->withQueryString();
 
-
-        $articles = $query->with('author')
-        ->latest('created_at')
-        ->paginate(10)
-        ->withQueryString();
-
-        $totalArticles = Article::count();
-        $publishedCount = Article::where('status', 'Published')->count();
-        $pendingCount = Article::where('status', 'Pending')->count();
-
+        $totalArticles = ArticleFilter::apply(Article::query(), $request)->count();
+        $publishedCount = (clone $publishedQuery)->count();
+        $pendingCount = (clone $pendingQuery)->count();
 
         return view('editor.dashboard', compact(
-                'articles', 
-                'pendingArticles', 
-                'publishedArticles', 
-                'totalArticles', 
-                'publishedCount', 
-                'pendingCount'
-            ));
+            'articles',
+            'pendingArticles',
+            'publishedArticles',
+            'totalArticles',
+            'publishedCount',
+            'pendingCount'
+        ));
     }
 
+    public function dashboard(Request $request)
+    {
+        $query = Article::where('author_id', auth()->id());
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->sort === 'oldest') {
+            $query->orderBy('created_at', 'asc');
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
+
+        $articles = $query->get();
+
+        return view('author.dashboard', [
+            'articles' => $articles,
+            'totalArticles' => Article::where('author_id', auth()->id())->count(),
+            'publishedCount' => Article::where('author_id', auth()->id())->where('status', 'published')->count(),
+            'pendingCount' => Article::where('author_id', auth()->id())->where('status', 'pending')->count(),
+            'categories' => Article::distinct()->pluck('category'),
+        ]);
+    }
 
     public function destroy(Request $request)
     {

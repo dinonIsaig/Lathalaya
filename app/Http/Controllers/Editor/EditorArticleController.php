@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Editor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
-class AdminArticleController extends Controller
+class EditorArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.create-article');
+        return view('editor.dashboard');
     }
 
     /**
@@ -29,10 +29,9 @@ class AdminArticleController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'title' => 'required|string|max:255',
-            'cover_image' => 'nullable|image|max:10240',
+            'cover_image' => 'nullable|image|max:2048',
             'category' => 'required|string|max:100',
             'content' => 'required|string',
         ]);
@@ -51,7 +50,7 @@ class AdminArticleController extends Controller
             'author_id' => 1, //temporary hardcoded author ID, use author seeder for sample author
         ]);
 
-        return redirect()->route('admin.article-view', ['id' => $article->article_id])
+        return redirect()->route('editor.article-view', ['id' => $article->article_id])
                      ->with('success', 'Article submitted!');
     }
 
@@ -63,7 +62,7 @@ class AdminArticleController extends Controller
         
         $article = Article::findOrFail($id);
 
-        return view('admin.article-view', compact('article'));
+        return view('editor.article-view', compact('article'));
     }
 
     public function publish($id)

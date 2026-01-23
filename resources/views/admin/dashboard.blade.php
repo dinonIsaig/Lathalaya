@@ -130,18 +130,6 @@
                 </div>
             </div>
 
-            <div x-data="{ open : false }">
-                <div class="flex justify-end mb-4">
-                    <button type="button" @click="open = true" class="normal-btn flex items-center px-3 md:px-4">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 6H21M6 12H18M10 18H14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="hidden sm:inline-block ml-1 tracking-tight text-base">Filter</span>
-                    </button>
-                </div>
-                @include('components.filter')
-            </div>
-
             <div>
                 <div class="flex items-center gap-2 overflow-x-auto pb-5">
                     <div class="text-green-500">

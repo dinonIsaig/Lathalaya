@@ -22,34 +22,29 @@
                     <a href="{{ route('author.sign-in') }}" class="hidden sm:inline-block ml-1 tracking-tight text-base">Create Article</a>
                 </button>
             </div>
+            @if($headerArticle)
+                <a href="{{ route('article-view', $headerArticle->article_id) }}" class="block no-underline group mb-12">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[17/9] md:aspect-[3/1] shadow-lg">
+                        <img src="{{ $headerArticle->cover_image ? asset('storage/' . $headerArticle->cover_image) : asset('assets/images/articleImg.png') }}"
+                             alt="{{ $headerArticle->title }}"
+                             class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
 
-            <div class="justify-center w-full mb-10">
-                @if($headerArticle)
-                    <div class="top-4 right-4 flex items-center mb-2">
-                        <div class="bg-black rounded-xl relative overflow-hidden w-full aspect-[17/9] md:aspect-[3/1]">
-                            <img src="{{ $headerArticle->cover_image ? asset('storage/' . $headerArticle->cover_image) : asset('assets/images/articleImg.png') }}"
-                                                            alt="{{ $headerArticle->title }}"
-                                                            class="object-cover rounded-lg w-full h-full">
-
-                            <div class="absolute bottom-0 left-0 flex flex-col p-5 md:p-10 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
-                                <span class="bg-tags text-xs px-2 py-1 md:text-xs rounded-2xl w-fit">
-                                    {{ $headerArticle->category ?? 'General' }}
-                                </span>
-
-                                <h1 class="text-white text-lg sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 max-w-4xl leading-tight">
-                                    {{ $headerArticle->title }}
-                                </h1>
-
-                                <p class="text-xs md:text-sm opacity-80 mt-2">
-                                    By {{ $headerArticle->author_name ?? 'Staff Writer' }}
-                                </p>
-                            </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-12">
+                            <span class="bg-tags text-white text-xs px-3 py-1 rounded-full w-fit mb-4">
+                                {{ $headerArticle->category ?? 'Featured' }}
+                            </span>
+                            <h1 class="text-white text-2xl md:text-5xl font-extrabold leading-tight max-w-4xl">
+                                {{ $headerArticle->title }}
+                            </h1>
+                            <p class="text-gray-300 text-sm md:text-base mt-4 flex items-center gap-2">
+                                <span>By {{ $headerArticle->author->full_name ?? 'Unknown' }}</span>
+                                <span class="opacity-50">•</span>
+                                <span>{{ $headerArticle->created_at->format('M d, Y') }}</span>
+                            </p>
                         </div>
                     </div>
-                @else
-                    <p class="text-center text-gray-500">No featured stories available.</p>
-                @endif
-            </div>
+                </a>
+            @endif
 
             <div x-data="{ open : false }">
                 <div class="flex justify-end mb-4">
@@ -63,24 +58,30 @@
                 @include('components.filter')
             </div>
 
-            <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6">Latest Stories</h2>
-
-            <div class="flex justify-center mb-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
-                    @foreach($publishedArticles as $article)
-                        <x-latest-articles-home :article="$article" />
-                    @endforeach
-                </div>
-
+            <div class="flex justify-center mb-10">
+                @if($publishedArticles->count() > 0)
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
+                        @foreach($publishedArticles as $article)
+                            <x-latest-articles-home :article="$article" route="article-view" />
+                        @endforeach
+                    </div>
+                @else
+                    <div class="w-full py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4 text-gray-400">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">No results found</h3>
+                        <p class="text-gray-500 mt-1 mb-6">We couldn't find any articles matching your current filters.</p>
+                        <a href="{{ url()->current() }}" class="px-6 py-2 bg-button text-white rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                            Clear Filters
+                        </a>
+                    </div>
+                @endif
             </div>
-
         </div>
-
     </div>
 </div>
-
-
-@stack('scripts')
 @endsection
-
 

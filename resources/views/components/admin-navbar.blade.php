@@ -6,7 +6,7 @@
     <div class="max-w-full mx-auto flex items-center justify-between">
 
         <div class="flex items-center gap-10">
-            
+
             <button @click="mobileMenuOpen = true" class="md:hidden text-neutral-gray hover:text-primary p-2 focus:outline-none ml-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -31,7 +31,7 @@
         <div class="flex items-center gap-4">
             <div class="flex items-center gap-3 bg-neutral-light px-3 py-1.5 rounded-lg ring-1 ring-black/5">
                 <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold">
-                    {{$user->initials}}
+                    {{ $user->initials ?? substr($user->full_name ?? 'A', 0, 1) }}
                 </div>
                 <div class="hidden sm:block text-left leading-tight">
                     <p class="text-sm text-text-primary">{{ $user->full_name ?? 'Guest Admin' }}</p>
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div x-show="mobileMenuOpen" 
+    <div x-show="mobileMenuOpen"
          style="display: none;"
          @click="mobileMenuOpen = false"
          x-transition:enter="transition-opacity ease-linear duration-300"
@@ -59,7 +59,7 @@
          class="fixed inset-0 bg-black/50 z-[60]">
     </div>
 
-    <div x-show="mobileMenuOpen" 
+    <div x-show="mobileMenuOpen"
          style="display: none;"
          x-transition:enter="transition ease-in-out duration-300 transform"
          x-transition:enter-start="-translate-x-full"
@@ -68,7 +68,7 @@
          x-transition:leave-start="translate-x-0"
          x-transition:leave-end="-translate-x-full"
          class="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-[70] flex flex-col p-6">
-        
+
         <div class="flex items-center justify-between mb-8">
             <h3 class="text-xl font-bold text-gray-700">Menu</h3>
             <button @click="mobileMenuOpen = false" class="text-gray-400 hover:text-primary  cursor-pointer">
