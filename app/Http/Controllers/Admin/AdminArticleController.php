@@ -48,11 +48,12 @@ class AdminArticleController extends Controller
             'category' => $request->category,
             'content' => $request->content,
             'cover_image' => $imagePath,
+            'status' => 'Published',
             'author_id' => 1, //temporary hardcoded author ID, use author seeder for sample author
         ]);
 
         return redirect()->route('admin.article-view', ['id' => $article->article_id])
-                     ->with('success', 'Article submitted!');
+                     ->with('success', 'Article has been published successfully!');
     }
 
     /**

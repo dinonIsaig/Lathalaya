@@ -89,8 +89,8 @@
                     <a href="{{ route('admin.home') }}" class="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">
                         Cancel
                     </a>
-                    <button type="submit" class="bg-button text-white px-6 py-1 rounded-[10px] hover:bg-primary-dark transition-colors cursor-pointer font-semibold">
-                        Submit for Review
+                    <button  type="submit" class="bg-button text-white px-6 py-1 rounded-[10px] hover:bg-primary-dark transition-colors cursor-pointer font-semibold">
+                        Publish Article
                     </button>
                 </div>
 
@@ -103,23 +103,10 @@
     </div>
 </div>
 
-<x-confirm-submitted-modal id="confirmSubmittedModal" />
-
 @endsection
 
 @push('scripts')
     @vite(['resources/js/article-cover.js'])
-
-    <script>
-        @if(session('success'))
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('confirmSubmittedModal');
-            if (modal) {
-                modal.classList.remove('hidden');
-            }
-        });
-        @endif
-    </script>
 
 @endpush
 

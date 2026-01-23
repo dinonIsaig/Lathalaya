@@ -2,6 +2,22 @@
 
 @section('title', $article->title)
 
+@if (session('success'))
+    <div id="alert-success" class="absolute top-10 right-200 z-[100] tracking-wide flex items-center p-4 px-10 mb-4 text-green-800 rounded-lg bg-green-50 border border-green-300 shadow-lg transition-opacity duration-500" role="alert">
+        <div class="ms-3 text-sm font-medium">
+            {{ session('success') }}
+        </div>
+    </div>
+@endif
+
+@if (session('error'))
+    <div id="alert-error" class="absolute top-10 right-200 z-[100] flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 border border-red-300 shadow-lg transition-opacity duration-500" role="alert">
+        <div class="ms-3 text-sm font-medium">
+            {{ session('error') }}
+        </div>
+    </div>
+@endif
+
 @section('content')
 <div class="flex h-screen bg-neutral-light">
     <div class="flex-1 pt-30 overflow-auto">
@@ -76,19 +92,9 @@
     </div>
 </div>
 
-<x-confirm-submitted-modal id="confirmSubmittedModal" />
 
 @endsection
 
 @push('scripts')
-<script>
-    @if(session('success'))
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('confirmSubmittedModal');
-            if (modal) {
-                modal.classList.remove('hidden');
-            }
-        });
-    @endif
-</script>
+    @vite('resources/js/notifications.js')
 @endpush
