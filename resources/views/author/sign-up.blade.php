@@ -31,24 +31,41 @@
         <form method="POST" action="{{ route('author.sign-up') }}" class="space-y-4">
             @csrf
 
-
-            <div>
-                <label for="Full Name" class="mb-2 block text-sm text-gray-700">
-                    Full Name
-                </label>
-                <div class="relative rounded-md shadow-sm">
-                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                        </svg>
+            <div class="flex gap-4">
+                <div>
+                    <label for="First Name" class="mb-2 block text-sm text-gray-700">
+                    First Name
+                    </label>
+                    <div class="relative rounded-md">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <input type="text" name="first_name" id="first_name" class="input-field" placeholder="John" value="{{ old('first_name') }}">
+                        </div>
                     </div>
-                    <div>
-                        <input type="text" name="full_name" id="full_name" class="input-field" placeholder="John Doe" value="{{ old('full_name') }}">
-                    </div>
+                    @error('first_name')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
-                @error('full_name')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
+                <div>
+                    <label for="Last Name" class="mb-2 block text-sm text-gray-700">
+                    Last Name
+                    </label>
+                    <div class="relative rounded-md">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                        </div>
+                        <input type="text" name="last_name" id="last_name" class="input-field" placeholder="Doe" value="{{ old('last_name') }}">
+                    </div>
+                    @error('last_name')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
 
             <div>

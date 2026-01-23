@@ -17,13 +17,15 @@ class AuthorAuthController extends Controller
     public function signUp(Request $request)
     {
         $request->validate([
-            'full_name' => 'required|string|max:50',
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
             'email' => 'required|string|email|max:100|unique:authors',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
         Author::create([
-            'full_name' => $request->full_name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

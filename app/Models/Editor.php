@@ -16,7 +16,8 @@ class Editor extends Model implements Authenticatable
 
     protected $fillable = [
         'editor_number',
-        'full_name',
+        'first_name',
+        'last_name',
         'email',
         'password',
     ];

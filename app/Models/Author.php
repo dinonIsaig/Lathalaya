@@ -18,7 +18,8 @@ class Author extends Model implements Authenticatable
      */
     protected $fillable = [
         'author_id',
-        'full_name',
+        'first_name',
+        'last_name',
         'email',
         'password',
     ];
@@ -39,20 +40,5 @@ class Author extends Model implements Authenticatable
     ];
 
     protected $guarded = ['password'];
-
-    protected function initials(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                // Split by space and filter out empty strings
-                $words = explode(' ', trim($this->full_name ?? 'Guest Admin'));
-                
-                $first = $words[0][0] ?? ''; 
-                $second = $words[1][0] ?? '';
-
-                return strtoupper($first . $second);
-            },
-        );
-    }
 
 }
