@@ -10,16 +10,15 @@ class LathalayaController extends Controller
 {
     public function index(Request $request)
     {
-
+        $header = Article::where('status', 'Published')->latest()->first();
         $query = Article::where('status', 'Published');
         ArticleFilter::apply($query, $request);
-        $header = (clone $query)->latest()->first();
-        $articles = $query->latest()
-            ->when($header, function ($q) use ($header) {
-                return $q->where('article_id', '!=', $header->article_id);
-            })
-            ->take(9)
-            ->get();
+
+        if ($header) {
+            $query->where('article_id', '!=', $header->article_id);
+        }
+
+        $articles = $query->latest()->take(9)->get();
 
         return view('lathalaya', [
             'publishedArticles' => $articles,

@@ -52,6 +52,34 @@ class EditorDashboardController extends Controller
             ));
     }
 
+    public function dashboard(Request $request)
+    {
+        $query = Article::where('author_id', auth()->id());
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->sort === 'oldest') {
+            $query->orderBy('created_at', 'asc');
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
+
+        $articles = $query->get();
+
+        return view('author.dashboard', [
+            'articles' => $articles,
+            'totalArticles' => Article::where('author_id', auth()->id())->count(),
+            'publishedCount' => Article::where('author_id', auth()->id())->where('status', 'published')->count(),
+            'pendingCount' => Article::where('author_id', auth()->id())->where('status', 'pending')->count(),
+            'categories' => Article::distinct()->pluck('category'),
+        ]);
+    }
 
     public function destroy(Request $request)
     {

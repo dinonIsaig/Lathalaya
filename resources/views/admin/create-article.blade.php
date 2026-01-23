@@ -89,7 +89,7 @@
                     <a href="{{ route('admin.home') }}" class="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">
                         Cancel
                     </a>
-                    <button type="submit" class="bg-button text-white px-6 py-1 rounded-[10px] hover:bg-primary-dark transition-colors">
+                    <button type="submit" class="bg-button text-white px-6 py-1 rounded-[10px] hover:bg-primary-dark transition-colors cursor-pointer font-semibold">
                         Submit for Review
                     </button>
                 </div>

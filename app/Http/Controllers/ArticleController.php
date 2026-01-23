@@ -31,11 +31,10 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'cover_image' => 'nullable|image|max:2048',
+            'cover_image' => 'nullable|image|max:10240',
             'category' => 'required|string|max:100',
             'content' => 'required|string',
         ]);
-
         
         $imagePath = null;
         if ($request->hasFile('cover_image')) {

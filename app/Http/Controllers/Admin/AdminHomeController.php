@@ -13,14 +13,8 @@ class AdminHomeController extends Controller
     {
         $query = Article::where('status', 'Published');
         ArticleFilter::apply($query, $request);
-        $header = (clone $query)->latest()->first();
-
-        $articles = $query->latest()
-            ->when($header, function ($q) use ($header) {
-                return $q->where('article_id', '!=', $header->article_id);
-            })
-            ->take(9)
-            ->get();
+        $articles = $query->latest()->take(9)->get();
+        $header = Article::where('status', 'Published')->latest()->first();
 
         return view('admin.home', [
             'publishedArticles' => $articles,

@@ -5,9 +5,11 @@
     }">
     
     <input type="hidden" name="date_range" :value="selectedRange">
-    <template x-for="category in selectedCategories" :key="category">
-        <input type="hidden" name="categories[]" :value="category">
-    </template>
+    <div class="hidden">
+        <template x-for="category in selectedCategories" :key="category">
+            <input type="hidden" name="categories[]" :value="category">
+        </template>
+    </div>
 
     <div x-show="open"
          x-transition.opacity
@@ -28,8 +30,8 @@
             <div class="space-y-2">
                 <section class="p-8">
                     <h3 class="mb-4 font-medium text-gray-900">Categories</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                        @foreach(['Politics','Business','Technology','Health','Sports','Lifestyle','Entertainment','Obituaries'] as $category)
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 cursosr-pointer">
+                        @foreach(['Politics & Government','Business & Finance','Technology & Science','Health & Fitness','Sports','Lifestyle & Travel','Entertainment & Nature','Obituaries'] as $category)
                             <button type="button"
                                 @click="
                                     selectedCategories.includes('{{ $category }}')
@@ -39,7 +41,7 @@
                                 :class="selectedCategories.includes('{{ $category }}')
                                     ? 'bg-button text-white border-transparent'
                                     : 'border-gray-200 text-gray-600 hover:bg-gray-50'"
-                                class="border rounded-xl py-2.5 text-sm font-medium transition-colors">
+                                class="border rounded-xl py-4 text-sm font-medium transition-colors cursor-pointer">
                                 {{ $category }}
                             </button>
                         @endforeach
@@ -55,7 +57,7 @@
                                 :class="selectedRange === '{{ $range }}' 
                                     ? 'bg-button text-white border-transparent' 
                                     : 'border-gray-200 text-gray-600 hover:bg-gray-50'"
-                                class="px-5 py-2.5 rounded-xl border text-sm font-medium transition-colors">
+                                class="px-5 py-2.5 rounded-xl border text-sm font-medium transition-colors cursor-pointer">
                                 {{ $range }}
                             </button>
                         @endforeach
@@ -64,15 +66,15 @@
             </div>
 
             <div class="px-8 py-6 flex justify-between items-center border-t border-gray-100 bg-gray-50/50">
-                <a href="{{ url()->current() }}" class="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors">
+                <a href="{{ url()->current() }}" class="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors cursor-pointer">
                     Clear All
                 </a>
                 <div class="flex gap-3">
                     <button type="button" @click="open = false" 
-                        class="text-sm font-semibold text-gray-600 px-6 py-2 hover:text-gray-900 transition-colors">
+                        class="text-sm font-semibold text-gray-600 px-6 py-2 hover:text-gray-900 transition-colors cursor-pointer">
                         Cancel
                     </button>
-                    <button type="submit" class="px-8 py-2.5 bg-button text-white rounded-xl font-semibold shadow-sm hover:opacity-90 transition-opacity">
+                    <button type="submit" class="px-8 py-2.5 bg-button text-white rounded-xl font-semibold shadow-sm hover:opacity-90 transition-opacity cursor-pointer">
                         Apply Filters
                     </button>
                 </div>
