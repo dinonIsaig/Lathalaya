@@ -26,7 +26,7 @@
                     {{ $article->title }}
                 </h1>
                 <div class="flex items-center text-gray-500 text-sm">
-                    <span class="font-medium text-slate-800">By {{ $article->author->full_name ?? 'Author Name' }}</span>
+                    <span class="font-medium text-slate-800">By {{ $article->author->first_name }} {{ $article->author->last_name ?? 'Author Name' }}</span>
                     <span class="mx-2">•</span>
                     <span>{{ $article->created_at->format('M d, Y') }}</span>
                 </div>
