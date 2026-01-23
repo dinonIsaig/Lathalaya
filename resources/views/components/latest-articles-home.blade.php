@@ -15,7 +15,7 @@
                     {{ $article->title }}
                 </h1>
                 <p class="text-gray-500 text-sm mt-auto">
-                    By {{ $article->author->full_name ?? 'Unknown Author' }}
+                    By {{ $article->author->first_name ?? 'Unknown' }} {{ $article->author->last_name ?? 'Author' }}
                 </p>
             </div>
         </div>

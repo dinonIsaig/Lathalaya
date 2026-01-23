@@ -13,7 +13,8 @@ class AuthorAdminSeeder extends Seeder
     {
         DB::table('authors')->insert([
             'author_id' => 1,
-            'full_name' => 'Admin',
+            'first_name' => 'Admin',
+            'last_name' => 'User',
             'email' => 'admin@example.com',
             'password' => Hash::make('password123'),
             'created_at' => now(),
@@ -22,7 +23,8 @@ class AuthorAdminSeeder extends Seeder
 
         DB::table('authors')->insert([
             'author_id' => 2,
-            'full_name' => 'Sample Author',
+            'first_name' => 'Sample',
+            'last_name' => 'Author',
             'email' => 'author@example.com',
             'password' => Hash::make('password123'),
             'created_at' => now(),
@@ -30,7 +32,8 @@ class AuthorAdminSeeder extends Seeder
         ]);
 
         DB::table('admins')->insert([
-            'full_name' => 'Sample Admin',
+            'first_name' => 'Admin',
+            'last_name' => 'User',
             'email' => 'admin@example.com',
             'password' => Hash::make('password123'),
         ]);

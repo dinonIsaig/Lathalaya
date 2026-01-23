@@ -33,7 +33,7 @@
                                 {{ $headerArticle->title }}
                             </h1>
                             <p class="text-gray-300 text-sm md:text-base mt-4 flex items-center gap-2">
-                                <span>By {{ $headerArticle->author->full_name ?? 'Unknown' }}</span>
+                                <span>By {{ $headerArticle->author->first_name }} {{ $headerArticle->author->last_name ?? 'Unknown' }}</span>
                                 <span class="opacity-50">•</span>
                                 <span>{{ $headerArticle->created_at->format('M d, Y') }}</span>
                             </p>

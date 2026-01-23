@@ -19,7 +19,8 @@ class EditorAuthController extends Controller
     {
         $request->validate([
             'editor_number' => 'required|digits:4|exists:editorsID,editor_number',
-            'full_name' => 'required|string|max:50',
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
             'email' => 'required|string|email|max:100|unique:editors',
             'password' => 'required|string|min:8|confirmed',
         ]);
@@ -34,7 +35,8 @@ class EditorAuthController extends Controller
 
         $editor = Editor::create([
             'editor_number' => $request->editor_number,
-            'full_name' => $request->full_name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

@@ -39,7 +39,8 @@ class EditorWithIDSeeder extends Seeder
             if ($shouldCreateEditor) {
                 Editor::create([
                     'editor_number' => $i,
-                    'full_name' => $faker->name,
+                    'first_name' => $faker->firstName,
+                    'last_name' => $faker->lastName,
                     'email' => $faker->unique()->safeEmail,
                     'password' => Hash::make('password123'),
                 ]);
@@ -47,17 +48,18 @@ class EditorWithIDSeeder extends Seeder
         }
 
         $editors = [
-        ['id' => 1000, 'name' => 'Deenawnn', 'email' => 'deenawnn@example.com'],
-        ['id' => 1001, 'name' => 'Hiaxynth', 'email' => 'hiaxynth@example.com'],
-        ['id' => 1002, 'name' => 'joyirel',  'email' => 'joyirel@example.com'],
-        ['id' => 1003, 'name' => 'ebreel',   'email' => 'ebreel@example.com'],
+        ['id' => 1000, 'first_name' => 'Deenawn', 'last_name' => 'Isaig', 'email' => 'deenawnn@example.com'],
+        ['id' => 1001, 'first_name' => 'Hiaxynth', 'last_name' => 'Lee', 'email' => 'hiaxynth@example.com'],
+        ['id' => 1002, 'first_name' => 'Joyirel', 'last_name' => 'Baladjay',  'email' => 'joyirel@example.com'],
+        ['id' => 1003, 'first_name' => 'Ebreel', 'last_name' => 'Saliba',   'email' => 'ebreel@example.com'],
         ];
 
         foreach ($editors as $data) {
 
             DB::table('editors')->insert([
                 'editor_number' => $data['id'],
-                'full_name'     => $data['name'],
+                'first_name'    => $data['first_name'],
+                'last_name'     => $data['last_name'],
                 'email'         => $data['email'],
                 'password'      => Hash::make('password123'),
                 'created_at'    => now(),
