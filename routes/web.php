@@ -14,7 +14,7 @@ use App\Http\Controllers\Editor\EditorUpdateArticleController;
 use App\Http\Controllers\Editor\EditorArticleController;
 use App\Http\Controllers\Author\AuthorHomeController;
 use App\Http\Controllers\Author\AuthorDashboardController;
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Author\AuthorArticleController;
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Author\AuthorAuthController;
@@ -73,9 +73,9 @@ Route::prefix('pam')->group(function () {
             Route::get('/sign-up', [AuthorAuthController::class, 'showSignUpForm'])->name('author.sign-up.form');
             Route::post('/sign-up', [AuthorAuthController::class, 'signUp'])->name('author.sign-up');
             Route::post('/sign-out', [AuthorAuthController::class, 'signOut'])->name('author.sign-out');
-            Route::get('/create', [ArticleController::class, 'index'])->name('author.create-article')->middleware('auth:author');
-            Route::post('/store', [ArticleController::class, 'store'])->name('author.store-article');
-            Route::get('/article/{id}', [ArticleController::class, 'show'])->name('author.article-view')->middleware('auth:author');
+            Route::get('/create', [AuthorArticleController::class, 'index'])->name('author.create-article')->middleware('auth:author');
+            Route::post('/store', [AuthorArticleController::class, 'store'])->name('author.store-article');
+            Route::get('/article/{id}', [AuthorArticleController::class, 'show'])->name('author.article-view')->middleware('auth:author');
             Route::get('/dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard')->middleware('auth:author');
             Route::get('/home', [AuthorHomeController::class, 'index'])->name('author.home')->middleware('auth:author');
 });
