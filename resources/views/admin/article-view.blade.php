@@ -26,7 +26,7 @@
                         {{ $article->title }}
                     </h1>
                     <div class="flex items-center text-gray-500 text-sm">
-                        <span class="font-medium text-slate-800">By {{ $article->author->name ?? 'Author Name' }}</span>
+                        <span class="font-medium text-slate-800">By {{ $article->author->full_name ?? 'Author Name' }}</span>
                         <span class="mx-2">•</span>
                         <span>{{ $article->created_at->format('M d, Y') }}</span>
                     </div>
@@ -46,12 +46,12 @@
 
             <div class="w-full h-[450px] rounded-[24px] overflow-hidden shadow-lg mb-10 border border-gray-100">
                 @if($article->cover_image)
-                    <img src="{{ asset('storage/' . $article->cover_image) }}" 
-                         alt="{{ $article->title }}" 
+                    <img src="{{ asset('storage/' . $article->cover_image) }}"
+                         alt="{{ $article->title }}"
                          class="w-full h-full object-cover">
                 @else
-                    <img src="{{ asset('assets/images/sampleCover.png') }}" 
-                         alt="Default Cover" 
+                    <img src="{{ asset('assets/images/sampleCover.png') }}"
+                         alt="Default Cover"
                          class="w-full h-full object-cover">
                 @endif
             </div>
@@ -64,11 +64,11 @@
 
             <div class="flex items-center gap-4 mb-10">
                 <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold">
-                    {{ strtoupper(substr($article->author->name ?? 'AN', 0, 2)) }}
+                    {{ strtoupper(substr($article->author->full_name ?? 'AN', 0, 2)) }}
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-slate-900">{{ $article->author->name ?? 'Author Name' }}</h4>
+                    <h4 class="font-bold text-slate-900">{{ $article->author->full_name ?? 'Author Name' }}</h4>
                     <p class="text-sm text-gray-500">Contributing Writer</p>
                 </div>
             </div>

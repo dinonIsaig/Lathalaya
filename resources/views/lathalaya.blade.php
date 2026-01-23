@@ -23,12 +23,12 @@
                 </button>
             </div>
             @if($headerArticle)
-                <a href="{{ route('author.article-view', $headerArticle->article_id) }}" class="block no-underline group mb-12">
+                <a href="{{ route('article-view', $headerArticle->article_id) }}" class="block no-underline group mb-12">
                     <div class="relative rounded-2xl overflow-hidden aspect-[17/9] md:aspect-[3/1] shadow-lg">
                         <img src="{{ $headerArticle->cover_image ? asset('storage/' . $headerArticle->cover_image) : asset('assets/images/articleImg.png') }}"
                              alt="{{ $headerArticle->title }}"
                              class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
-                        
+
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-12">
                             <span class="bg-tags text-white text-xs px-3 py-1 rounded-full w-fit mb-4">
                                 {{ $headerArticle->category ?? 'Featured' }}
@@ -62,7 +62,7 @@
                 @if($publishedArticles->count() > 0)
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
                         @foreach($publishedArticles as $article)
-                            <x-latest-articles-home :article="$article" route="author.article-view" />
+                            <x-latest-articles-home :article="$article" route="article-view" />
                         @endforeach
                     </div>
                 @else

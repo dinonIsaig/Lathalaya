@@ -22,6 +22,7 @@ use App\Http\Controllers\Editor\EditorAuthController;
 
 
 Route::get('/', [LathalayaController::class, 'index'])->name('lathalaya');
+Route::get('/article/{id}', [LathalayaController::class, 'show'])->name('article-view');
 
 Route::prefix('pam')->group(function () {
 

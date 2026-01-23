@@ -25,4 +25,13 @@ class LathalayaController extends Controller
             'headerArticle' => $header
         ]);
     }
+
+    public function show(string $id)
+    {
+
+        $article = Article::findOrFail($id);
+
+        return view('article-view', compact('article'));
+    }
+
 }
