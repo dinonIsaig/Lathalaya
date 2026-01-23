@@ -107,6 +107,7 @@
                             @endforelse
                         </tbody>
                     </table>
+                    <x-pagination :items="$articles" :type="'published articles'" />
                 </div>
             </div>
         </div>
