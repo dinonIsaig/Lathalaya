@@ -57,3 +57,134 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# News Platform
+
+A modern Laravel-based news publishing platform with author and editor management capabilities.
+
+## Prerequisites
+
+- PHP 8.2 or higher
+- Composer
+- Node.js and npm
+- SQLite (default) or MySQL/PostgreSQL
+
+## Installation Steps
+
+### 1. Clone the Repository
+
+```bash
+git clone <git@github.com:dinonIsaig/Lathalaya.git>
+cd news-platform
+```
+
+### 2. Install Dependencies
+
+```bash
+composer install
+npm install
+```
+
+Or use the setup script:
+
+```bash
+composer run setup
+```
+
+### 3. Environment Configuration
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Generate the application key:
+
+```bash
+php artisan key:generate
+```
+
+Update `.env` with your configuration (database, mail, etc.):
+
+```env
+APP_NAME="News Platform"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=sqlite
+# For MySQL, use:
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=news_platform
+# DB_USERNAME=root
+# DB_PASSWORD=
+```
+
+### 4. Database Setup
+
+Run migrations and seeders:
+
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+This will:
+- Create all necessary tables
+- Seed sample data (authors, editors, articles)
+
+### 5. Build Assets
+
+```bash
+npm run build
+```
+
+For development with hot reload:
+
+```bash
+npm run dev
+```
+
+### 6. Start the Application
+
+```bash
+php artisan serve
+```
+
+The application will be available at `http://localhost:8000`
+
+## Default Credentials
+
+**Admin Account:**
+- Email: `admin@example.com`
+- Password: `password123`
+
+**Sample Author:**
+- Email: `author@example.com`
+- Password: `password123`
+
+**Sample Editors:**
+- See [database/seeders/EditorWithIDSeeder.php](database/seeders/EditorWithIDSeeder.php)
+
+## Project Structure
+
+- **app/** - Application code (controllers, models, filters)
+- **config/** - Configuration files
+- **database/** - Migrations and seeders
+- **resources/** - Views and assets
+- **routes/** - Web routes
+- **storage/** - Application storage
+- **tests/** - Test files
+
+## Features
+
+- Author article submission and management
+- Editor review and publishing workflow
+- Article categorization
+- Admin dashboard for system management
+- User authentication and authorization
+
+
