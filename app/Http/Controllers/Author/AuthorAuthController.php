@@ -30,7 +30,7 @@ class AuthorAuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('author.sign-in.form');
+        return redirect()->route('author.sign-in.form')->with('success', 'Account created successfully');
     }
 
     public function showSignInForm()

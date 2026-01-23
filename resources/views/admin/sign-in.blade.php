@@ -74,5 +74,6 @@
 @endsection
 
 @push('scripts')
-@vite(['resources/js/toggle-password.js'])
+    @vite(['resources/js/toggle-password.js'])
+    @vite('resources/js/notifications.js')
 @endpush

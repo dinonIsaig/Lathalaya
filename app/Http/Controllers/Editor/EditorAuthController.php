@@ -45,7 +45,7 @@ class EditorAuthController extends Controller
         $editorID->save();
 
 
-        return redirect()->route('editor.sign-in.form');
+        return redirect()->route('editor.sign-in.form')->with('success', 'Account created successfully');
     }
 
     public function showSignInForm()
