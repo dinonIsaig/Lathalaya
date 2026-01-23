@@ -31,7 +31,7 @@
                 <section class="p-8">
                     <h3 class="mb-4 font-medium text-gray-900">Categories</h3>
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 cursosr-pointer">
-                        @foreach(['Politics & Government','Business & Finance','Technology & Science','Health & Fitness','Sports','Lifestyle & Travel','Entertainment & Nature','Obituaries'] as $category)
+                        @foreach(['Politics & Government','Business & Finance','Technology & Science','Health & Fitness','Sports','Lifestyle & Travel','Entertainment','Obituaries'] as $category)
                             <button type="button"
                                 @click="
                                     selectedCategories.includes('{{ $category }}')
