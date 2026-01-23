@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('editorsID', function (Blueprint $table) {
-            $table->id('editor_number');
+            $table->unsignedBigInteger('editor_number')->primary();
             $table->enum('status', ['Active', 'Inactive'])->default('Inactive');
             $table->timestamps();
         });

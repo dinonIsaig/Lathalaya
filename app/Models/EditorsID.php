@@ -10,8 +10,10 @@ class EditorsID extends Model
     use HasFactory;
     protected $table = 'editorsID';
     protected $primaryKey = 'editor_number';
+    public $incrementing = false;
 
     protected $fillable = [
+        'editor_number',
         'status',
     ];
 

@@ -39,7 +39,7 @@ class AdminAccountController extends Controller
         // Create the new inactive ID
         EditorsID::create([
             'editor_number' => $validated['editor_number'],
-            'status' => 'inactive', // Default status
+            'status' => 'Inactive', // Default status
         ]);
 
         return redirect()->back()->with('success', 'New Editor ID added successfully.');

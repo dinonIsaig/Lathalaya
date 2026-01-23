@@ -18,7 +18,7 @@
                             {{ $editor->editor_number }}
                         </td>
                         <td class="px-6 py-4 text-[10px] md:text-sm text-gray-600">
-                            {{ $editor->full_name }}
+                            {{ $editor->first_name }} {{ $editor->last_name }}
                         </td>
                         <td class="px-6 py-4 text-[10px] md:text-sm text-center text-gray-500">
                             {{ $editor->email }}
